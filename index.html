@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Hassan Elhadad — Full-Stack Developer</title>
+
+<!-- Primary Meta Tags -->
+<meta name="title" content="Mohamed Hassan Elhadad — Full-Stack Developer">
+<meta name="description" content="Full-Stack Developer specializing in C#, ASP.NET Core, SQL Server, and modern Web Technologies. EELU CS Student & DEPI Trainee.">
+<meta name="author" content="Mohamed Hassan Elhadad">
+<meta name="keywords" content="Mohamed Elhadad, Full Stack Developer, .NET Developer, ASP.NET Core, C#, Software Engineer, Portfolio, EELU, DEPI">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mohamed Hassan Elhadad — Full-Stack Developer">
+<meta property="og:description" content="Engineering robust and scalable web applications from front to back. View projects and technical expertise.">
+<meta property="og:url" content="https://foxelhadad812-design.github.io/uninest/">
+
+<style>
+  :root {
+    --bg-900: #F5EEE2;
+    --bg-800: #EDE2D0;
+    --bg-700: #E4D5BC;
+    --border: #D2BE9C;
+    --accent: #8B5A2B;
+    --accent-dim: rgba(139, 90, 43, 0.3);
+    --text-100: #3A2A1A;
+    --text-200: #5C4630;
+    --text-400: #8A6F4E;
+    --text-500: #A6906F;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg-900);
+    color: var(--text-200);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(245, 238, 226, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    max-width: 760px;
+  }
+
+  nav .logo {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-100);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  nav .logo:hover { color: var(--accent); }
+
+  nav .links {
+    display: flex;
+    gap: 22px;
+  }
+
+  nav .links a {
+    font-size: 13px;
+    color: var(--text-400);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  nav .links a:hover { color: var(--text-100); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 72px 0 80px;
+    text-align: center;
+  }
+
+  .avatar-wrap {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    margin: 0 auto 28px;
+    overflow: hidden;
+    border: 2px solid var(--accent);
+    padding: 3px;
+    transition: transform 0.3s ease;
+  }
+
+  .avatar-wrap:hover {
+    transform: scale(1.03);
+  }
+
+  .avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 38%;
+    display: block;
+  }
+
+  .hero-name {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-100);
+    margin: 0 0 8px;
+  }
+
+  .hero-title {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin: 0 0 30px;
+    text-transform: uppercase;
+  }
+
+  .hero-headline {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-200);
+    margin: 0 auto 14px;
+    max-width: 420px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    color: var(--text-400);
+    margin: 0 auto 34px;
+    max-width: 360px;
+  }
+
+  .divider {
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto 30px;
+  }
+
+  .hero-stack {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 36px;
+    font-size: 12px;
+    color: var(--text-400);
+    font-weight: 500;
+  }
+
+  .hero-stack .dot { color: var(--accent); }
+
+  .cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    box-shadow: 0 4px 14px var(--accent-dim);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139, 90, 43, 0.45);
+  }
+
+  .cta-outline {
+    background: transparent;
+    color: var(--accent);
+    box-shadow: none;
+  }
+
+  .cta-outline:hover {
+    background: var(--accent);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section.block {
+    padding: 72px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  section.block.tinted { background: var(--bg-800); }
+
+  .section-label {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  .section-heading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-100);
+    margin: 0 0 24px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-text {
+    font-size: 15px;
+    color: var(--text-200);
+    max-width: 580px;
+  }
+
+  .about-text p { margin: 0 0 16px; }
+
+  .about-facts {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+  }
+
+  .about-fact {
+    border-left: 2px solid var(--accent);
+    padding-left: 12px;
+  }
+
+  .about-fact .label {
+    font-size: 11px;
+    color: var(--text-500);
+    margin: 0 0 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .about-fact .value {
+    font-size: 13px;
+    color: var(--text-200);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-card {
+    background: var(--bg-700);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  }
+
+  .project-card .project-name {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    color: var(--text-100);
+    margin: 0 0 6px;
+  }
+
+  .project-card .project-role {
+    font-size: 12px;
+    color: var(--accent);
+    margin: 0 0 18px;
+    font-weight: 600;
+  }
+
+  .project-card .project-desc {
+    font-size: 14px;
+    color: var(--text-400);
+    margin: 0 0 20px;
+    max-width: 540px;
+  }
+
+  .project-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+
+  .project-features li {
+    font-size: 13px;
+    color: var(--text-200);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .project-features li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .project-tags span {
+    font-size: 11px;
+    color: var(--text-400);
+    background: var(--bg-900);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-weight: 500;
+  }
+
+  .project-cta {
+    margin-bottom: 20px;
+    padding: 10px 24px;
+    font-size: 12px;
+  }
+
+  .project-note {
+    font-size: 12px;
+    color: var(--text-500);
+    font-style: italic;
+    margin: 0;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px 24px;
+  }
+
+  .skill-group .skill-group-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-100);
+    margin: 0 0 12px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+    display: inline-block;
+  }
+
+  .skill-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skill-group li {
+    font-size: 13px;
+    color: var(--text-400);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-group li:last-child { border-bottom: none; }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cert-item {
+    background: var(--bg-700);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: border-color 0.2s ease;
+  }
+
+  .cert-item:hover {
+    border-color: var(--accent);
+  }
+
+  .cert-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-100);
+    margin: 0 0 4px;
+  }
+
+  .cert-issuer {
+    font-size: 12px;
+    color: var(--text-400);
+    margin: 0;
+  }
+
+  .cert-verify {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+
+  .cert-verify:hover { text-decoration: underline; }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    text-align: center;
+  }
+
+  .contact-text {
+    font-size: 15px;
+    color: var(--text-400);
+    max-width: 420px;
+    margin: 0 auto 32px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  footer {
+    padding: 32px 0 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-500);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 600px) {
+    nav .links { gap: 12px; }
+    nav .links a { font-size: 12px; }
+    .about-facts { grid-template-columns: 1fr; }
+    .project-features { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .cert-item { flex-direction: column; align-items: flex-start; }
+    .section-heading { font-size: 21px; }
+  }
+
+  /* ---------- ACCESSIBILITY ---------- */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo">M. Elhadad</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="avatar-wrap">
+        <img src="data:image/jpeg;base64,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" alt="Mohamed Hassan Elhadad" />
+      </div>
+      <h1 class="hero-name">Mohamed Hassan Elhadad</h1>
+      <p class="hero-title">Full-Stack Developer</p>
+
+      <h2 class="hero-headline">Engineering robust and scalable web applications</h2>
+      <p class="hero-subtitle">Not a mockup. A real, working product — built front to back, launched and ready to use.</p>
+
+      <div class="divider"></div>
+
+      <div class="hero-stack">
+        <span>C# &amp; ASP.NET Core</span>
+        <span class="dot">&middot;</span>
+        <span>SQL Server</span>
+        <span class="dot">&middot;</span>
+        <span>JavaScript</span>
+      </div>
+
+      <div class="cta-group">
+        <a href="#projects" class="cta">
+          <span>View my work</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://github.com/foxelhadad812-design" class="cta cta-outline" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <p class="section-label">About</p>
+      <h2 class="section-heading">A developer who ships the whole stack</h2>
+      <div class="about-text">
+        <p>I'm a Computer Science student at EELU, currently training in the DEPI .NET Full Stack Development track. I build complete web platforms myself — frontend, backend, and database — rather than piecing together templates or handing off half the work.</p>
+        <p>My proof of work is UniNest, a student housing platform I built end to end, and I bring that same hands-on approach — plus a working knowledge of machine learning — to every project I take on.</p>
+      </div>
+      <div class="about-facts">
+        <div class="about-fact">
+          <p class="label">Education</p>
+          <p class="value">B.Sc. Computer Science, EELU (Fayoum branch)</p>
+        </div>
+        <div class="about-fact">
+          <p class="label">Current training</p>
+          <p class="value">DEPI — .NET Full Stack Development (SWD5)</p>
+        </div>
+        <div class="about-fact">
+          <p class="label">Core stack</p>
+          <p class="value">C#, ASP.NET Core, SQL Server, JavaScript</p>
+        </div>
+        <div class="about-fact">
+          <p class="label">Also comfortable in</p>
+          <p class="value">Python, ML pipelines (scikit-learn)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tinted" id="projects">
+    <div class="wrap">
+      <p class="section-label">Projects</p>
+      <h2 class="section-heading">Featured work</h2>
+
+      <div class="project-card">
+        <h3 class="project-name">UniNest</h3>
+        <p class="project-role">Student housing platform &mdash; solo build</p>
+        <p class="project-desc">A full-stack platform connecting verified housing listings with students near EELU Fayoum &mdash; a working frontend paired with an ASP.NET Core API and a SQL Server database (Users, Properties, Amenities, Favorites), designed database-first.</p>
+
+        <ul class="project-features">
+          <li>Home, listings &amp; property detail pages</li>
+          <li>Login and registration flow</li>
+          <li>User profile management</li>
+          <li>Add-property submission form</li>
+        </ul>
+
+        <div class="project-tags">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>ASP.NET Core</span>
+          <span>SQL Server</span>
+          <span>GitHub Pages</span>
+        </div>
+
+        <a href="https://foxelhadad812-design.github.io/uninest/" class="cta project-cta" target="_blank" rel="noopener">
+          <span>View live site</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+
+        <p class="project-note">The live demo above shows the frontend; the ASP.NET Core + SQL Server backend is complete but not yet hosted publicly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <p class="section-label">Skills</p>
+      <h2 class="section-heading">What I work with</h2>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <p class="skill-group-title">Frontend</p>
+          <ul>
+            <li>HTML5 &amp; CSS3</li>
+            <li>JavaScript (ES6+)</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-title">Backend &amp; DB</p>
+          <ul>
+            <li>C# &amp; .NET Core</li>
+            <li>ASP.NET Core Web API</li>
+            <li>SQL Server &amp; T-SQL</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-title">Data &amp; Tools</p>
+          <ul>
+            <li>Python</li>
+            <li>scikit-learn (ML)</li>
+            <li>Git &amp; GitHub</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tinted" id="certifications">
+    <div class="wrap">
+      <p class="section-label">Certifications</p>
+      <h2 class="section-heading">Verified credentials</h2>
+
+      <div class="cert-list">
+        <div class="cert-item">
+          <div class="cert-main">
+            <p class="cert-name">Microsoft Certified: Azure Fundamentals</p>
+            <p class="cert-issuer">Microsoft &middot; Issued August 2026</p>
+          </div>
+          <a href="https://verify.certiport.com/" class="cert-verify" target="_blank" rel="noopener">Verify &rarr;</a>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-main">
+            <p class="cert-name">CCNA: Introduction to Networks</p>
+            <p class="cert-issuer">Cisco Networking Academy &middot; EELU &middot; May 2026</p>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-main">
+            <p class="cert-name">Generative AI — Certificate of Attendance</p>
+            <p class="cert-issuer">CIB Summer Internship Program &middot; July 2026</p>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-main">
+            <p class="cert-name">International Certification for Artificial Intelligence License</p>
+            <p class="cert-issuer">AMG Academy (ICAIL) &middot; 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <p class="section-label">Contact</p>
+      <h2 class="section-heading">Let's build something that works</h2>
+      <p class="contact-text">Have a project in mind or looking for a full-stack developer? Feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="mailto:foxelhadad812@gmail.com" class="cta">Email me</a>
+        <a href="https://www.linkedin.com/in/mohamed-elhadad-285015428" class="cta cta-outline" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/foxelhadad812-design" class="cta cta-outline" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    &copy; 2026 Mohamed Hassan Elhadad. Built by hand, front to back.
+  </div>
+</footer>
+
+</body>
+</html>
