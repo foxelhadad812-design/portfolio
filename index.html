@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mohamed Hassan Elhadad — Full-Stack Developer">
 <meta property="og:description" content="Engineering robust and scalable web applications from front to back. View projects and technical expertise.">
-<meta property="og:url" content="https://foxelhadad812-design.github.io/uninest/">
+<meta property="og:url" content="https://foxelhadad812-design.github.io/portfolio/">
 
 <style>
   :root {
@@ -48,7 +48,7 @@
   a { color: inherit; }
 
   .wrap {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 24px;
   }
@@ -83,7 +83,7 @@
 
   nav .links {
     display: flex;
-    gap: 22px;
+    gap: 20px;
   }
 
   nav .links a {
@@ -102,13 +102,14 @@
   }
 
   .avatar-wrap {
-    width: 128px;
-    height: 128px;
+    width: 136px;
+    height: 136px;
     border-radius: 50%;
     margin: 0 auto 28px;
     overflow: hidden;
-    border: 2px solid var(--accent);
+    border: 3px solid var(--accent);
     padding: 3px;
+    box-shadow: 0 8px 24px var(--accent-dim);
     transition: transform 0.3s ease;
   }
 
@@ -127,7 +128,7 @@
 
   .hero-name {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     color: var(--text-100);
     margin: 0 0 8px;
@@ -137,9 +138,9 @@
     font-family: 'Courier New', monospace;
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: var(--accent);
-    margin: 0 0 30px;
+    margin: 0 0 28px;
     text-transform: uppercase;
   }
 
@@ -148,21 +149,22 @@
     font-weight: 600;
     color: var(--text-200);
     margin: 0 auto 14px;
-    max-width: 420px;
+    max-width: 440px;
   }
 
   .hero-subtitle {
     font-size: 14px;
     color: var(--text-400);
     margin: 0 auto 34px;
-    max-width: 360px;
+    max-width: 380px;
   }
 
   .divider {
-    width: 32px;
-    height: 1px;
+    width: 36px;
+    height: 2px;
     background: var(--accent);
     margin: 0 auto 30px;
+    border-radius: 2px;
   }
 
   .hero-stack {
@@ -192,7 +194,7 @@
     background: var(--accent);
     border: 1px solid var(--accent);
     color: #FFFFFF;
-    padding: 12px 28px;
+    padding: 12px 26px;
     border-radius: 4px;
     font-size: 13px;
     font-weight: 600;
@@ -248,7 +250,7 @@
   .about-text {
     font-size: 15px;
     color: var(--text-200);
-    max-width: 580px;
+    max-width: 600px;
   }
 
   .about-text p { margin: 0 0 16px; }
@@ -280,7 +282,61 @@
     font-weight: 500;
   }
 
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--bg-700);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .service-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--bg-900);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .service-title {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-100);
+    margin: 0 0 8px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--text-400);
+    margin: 0;
+    line-height: 1.5;
+  }
+
   /* ---------- PROJECTS ---------- */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
   .project-card {
     background: var(--bg-700);
     border: 1px solid var(--border);
@@ -294,11 +350,19 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.04);
   }
 
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+
   .project-card .project-name {
     font-family: Georgia, serif;
     font-size: 22px;
     color: var(--text-100);
-    margin: 0 0 6px;
+    margin: 0;
   }
 
   .project-card .project-role {
@@ -312,7 +376,7 @@
     font-size: 14px;
     color: var(--text-400);
     margin: 0 0 20px;
-    max-width: 540px;
+    max-width: 560px;
   }
 
   .project-features {
@@ -359,9 +423,15 @@
     font-weight: 500;
   }
 
+  .project-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
   .project-cta {
-    margin-bottom: 20px;
-    padding: 10px 24px;
+    padding: 9px 20px;
     font-size: 12px;
   }
 
@@ -459,14 +529,14 @@
   .contact-text {
     font-size: 15px;
     color: var(--text-400);
-    max-width: 420px;
+    max-width: 440px;
     margin: 0 auto 32px;
   }
 
   .contact-links {
     display: flex;
     justify-content: center;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
   }
 
@@ -479,10 +549,11 @@
   }
 
   /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
     nav .links { gap: 12px; }
     nav .links a { font-size: 12px; }
     .about-facts { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
     .project-features { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
     .cert-item { flex-direction: column; align-items: flex-start; }
@@ -508,6 +579,7 @@
     <a href="#top" class="logo">M. Elhadad</a>
     <div class="links">
       <a href="#about">About</a>
+      <a href="#services">Services</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#certifications">Certifications</a>
@@ -580,43 +652,113 @@
     </div>
   </section>
 
-  <section class="block tinted" id="projects">
+  <section class="block tinted" id="services">
     <div class="wrap">
-      <p class="section-label">Projects</p>
-      <h2 class="section-heading">Featured work</h2>
+      <p class="section-label">Services</p>
+      <h2 class="section-heading">Capabilities &amp; Expertise</h2>
 
-      <div class="project-card">
-        <h3 class="project-name">UniNest</h3>
-        <p class="project-role">Student housing platform &mdash; solo build</p>
-        <p class="project-desc">A full-stack platform connecting verified housing listings with students near EELU Fayoum &mdash; a working frontend paired with an ASP.NET Core API and a SQL Server database (Users, Properties, Amenities, Favorites), designed database-first.</p>
-
-        <ul class="project-features">
-          <li>Home, listings &amp; property detail pages</li>
-          <li>Login and registration flow</li>
-          <li>User profile management</li>
-          <li>Add-property submission form</li>
-        </ul>
-
-        <div class="project-tags">
-          <span>HTML5</span>
-          <span>CSS3</span>
-          <span>JavaScript</span>
-          <span>ASP.NET Core</span>
-          <span>SQL Server</span>
-          <span>GitHub Pages</span>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="service-title">Full-Stack Development</h3>
+          <p class="service-desc">End-to-end web applications designed with responsive frontend UI and clean C# / ASP.NET Core architecture.</p>
         </div>
 
-        <a href="https://foxelhadad812-design.github.io/uninest/" class="cta project-cta" target="_blank" rel="noopener">
-          <span>View live site</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <h3 class="service-title">RESTful Web APIs</h3>
+          <p class="service-desc">Secure, high-performance web API services backed by SQL Server, EF Core, and clean database design principles.</p>
+        </div>
 
-        <p class="project-note">The live demo above shows the frontend; the ASP.NET Core + SQL Server backend is complete but not yet hosted publicly.</p>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <h3 class="service-title">Machine Learning Pipelines</h3>
+          <p class="service-desc">Practical AI integration &amp; classification models built using Python and scikit-learn for data insights.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="skills">
+  <section class="block" id="projects">
+    <div class="wrap">
+      <p class="section-label">Projects</p>
+      <h2 class="section-heading">Featured work</h2>
+
+      <div class="projects-list">
+        <div class="project-card">
+          <h3 class="project-name">UniNest</h3>
+          <p class="project-role">Student housing platform &mdash; full stack build</p>
+          <p class="project-desc">A full-stack platform connecting verified housing listings with students near EELU Fayoum &mdash; a working frontend paired with an ASP.NET Core API and a SQL Server database (Users, Properties, Amenities, Favorites), designed database-first.</p>
+
+          <ul class="project-features">
+            <li>Home, listings &amp; property detail pages</li>
+            <li>Login and registration flow</li>
+            <li>User profile management</li>
+            <li>Add-property submission form</li>
+          </ul>
+
+          <div class="project-tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>ASP.NET Core</span>
+            <span>SQL Server</span>
+            <span>GitHub Pages</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="https://foxelhadad812-design.github.io/uninest/" class="cta project-cta" target="_blank" rel="noopener">
+              <span>View live site</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+            <a href="https://github.com/foxelhadad812-design/uninest" class="cta cta-outline project-cta" target="_blank" rel="noopener">
+              <span>View Source Code</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+
+          <p class="project-note">The live demo above shows the frontend; the ASP.NET Core + SQL Server backend is complete and available in the source repository.</p>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-name">E-Commerce Web API Architecture</h3>
+          <p class="project-role">Backend API &amp; Database Design &mdash; RESTful architecture</p>
+          <p class="project-desc">A modular ASP.NET Core RESTful API service for e-commerce management. Features JWT user authentication, role-based authorization, Entity Framework Core ORM with SQL Server, and Swagger documentation.</p>
+
+          <ul class="project-features">
+            <li>JWT Token Authentication &amp; Authorization</li>
+            <li>Repository &amp; Unit of Work patterns</li>
+            <li>Product management, Cart &amp; Order processing</li>
+            <li>Swagger/OpenAPI documentation integration</li>
+          </ul>
+
+          <div class="project-tags">
+            <span>C#</span>
+            <span>ASP.NET Core API</span>
+            <span>EF Core</span>
+            <span>SQL Server</span>
+            <span>JWT Auth</span>
+            <span>Swagger</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="https://github.com/foxelhadad812-design" class="cta cta-outline project-cta" target="_blank" rel="noopener">
+              <span>View Repository</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tinted" id="skills">
     <div class="wrap">
       <p class="section-label">Skills</p>
       <h2 class="section-heading">What I work with</h2>
@@ -627,7 +769,8 @@
           <ul>
             <li>HTML5 &amp; CSS3</li>
             <li>JavaScript (ES6+)</li>
-            <li>Responsive Design</li>
+            <li>Responsive Web Design</li>
+            <li>DOM Manipulation</li>
           </ul>
         </div>
         <div class="skill-group">
@@ -635,6 +778,7 @@
           <ul>
             <li>C# &amp; .NET Core</li>
             <li>ASP.NET Core Web API</li>
+            <li>Entity Framework Core</li>
             <li>SQL Server &amp; T-SQL</li>
           </ul>
         </div>
@@ -644,13 +788,14 @@
             <li>Python</li>
             <li>scikit-learn (ML)</li>
             <li>Git &amp; GitHub</li>
+            <li>REST API Architecture</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="block tinted" id="certifications">
+  <section class="block" id="certifications">
     <div class="wrap">
       <p class="section-label">Certifications</p>
       <h2 class="section-heading">Verified credentials</h2>
@@ -669,6 +814,7 @@
             <p class="cert-name">CCNA: Introduction to Networks</p>
             <p class="cert-issuer">Cisco Networking Academy &middot; EELU &middot; May 2026</p>
           </div>
+          <span class="cert-verify">Verified</span>
         </div>
 
         <div class="cert-item">
@@ -676,6 +822,7 @@
             <p class="cert-name">Generative AI — Certificate of Attendance</p>
             <p class="cert-issuer">CIB Summer Internship Program &middot; July 2026</p>
           </div>
+          <span class="cert-verify">Verified</span>
         </div>
 
         <div class="cert-item">
@@ -683,12 +830,13 @@
             <p class="cert-name">International Certification for Artificial Intelligence License</p>
             <p class="cert-issuer">AMG Academy (ICAIL) &middot; 2025</p>
           </div>
+          <span class="cert-verify">Verified</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="block contact" id="contact">
+  <section class="block tinted contact" id="contact">
     <div class="wrap">
       <p class="section-label">Contact</p>
       <h2 class="section-heading">Let's build something that works</h2>
