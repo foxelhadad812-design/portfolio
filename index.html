@@ -44,9 +44,12 @@
     a:focus-visible, button:focus-visible { outline: 3px solid var(--teal-bright); outline-offset: 4px; }
     .progress { position: fixed; inset: 0 auto auto 0; z-index: 200; width: 0; height: 3px; background: var(--teal-bright); }
     .site-header {
-      position: absolute; inset: 0 0 auto; z-index: 20;
+      position: fixed; inset: 0 0 auto; z-index: 100;
       color: #eaf2f8; border-bottom: 1px solid rgba(255,255,255,.09);
     }
+    .site-header.is-scrolled { background: rgba(11,20,32,.94); backdrop-filter: blur(14px); box-shadow: 0 8px 28px rgba(4,12,19,.14); }
+    .skip-link { position: fixed; z-index: 300; top: 10px; left: 10px; padding: 10px 14px; border-radius: 10px; color: var(--navy); background: var(--teal-bright); font-weight: 700; text-decoration: none; transform: translateY(-160%); transition: transform .2s ease; }
+    .skip-link:focus { transform: translateY(0); }
     .nav-wrap {
       max-width: 1160px; height: 76px; margin: auto; padding: 0 28px;
       display: flex; justify-content: space-between; align-items: center;
@@ -257,6 +260,7 @@
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="progress" aria-hidden="true"></div>
   <header class="site-header">
     <nav class="nav-wrap" aria-label="Main navigation">
@@ -272,7 +276,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero" id="top">
       <div class="hero-inner">
         <div class="hero-content reveal">
@@ -424,6 +428,7 @@
     const menuButton = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
     const progress = document.querySelector(".progress");
+    const siteHeader = document.querySelector(".site-header");
 
     function closeMenu() {
       menuButton.setAttribute("aria-expanded", "false");
@@ -443,15 +448,19 @@
       if (event.key === "Escape") closeMenu();
     });
 
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach(item => revealObserver.observe(item));
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach(item => revealObserver.observe(item));
+    } else {
+      document.querySelectorAll(".reveal").forEach(item => item.classList.add("visible"));
+    }
 
     const sections = document.querySelectorAll("main section[id]");
     const sectionObserver = new IntersectionObserver(entries => {
@@ -471,6 +480,7 @@
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const value = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
       progress.style.width = value + "%";
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
     }
     window.addEventListener("scroll", updateProgress, { passive: true });
     updateProgress();
