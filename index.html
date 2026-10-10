@@ -141,24 +141,12 @@
     .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 19px; align-items: stretch; }
     .project-card { min-width: 0; overflow: hidden; border: 1px solid #dce4e9; border-radius: var(--radius); background: #fff; box-shadow: 0 7px 25px rgba(17,38,54,.035); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
     .project-card:hover { transform: translateY(-7px); border-color: rgba(8,127,121,.35); box-shadow: var(--shadow); }
-    .project-art { height: 190px; position: relative; overflow: hidden; display: grid; place-items: center; }
+    .project-art { height: auto; aspect-ratio: 2 / 1; position: relative; overflow: hidden; display: grid; place-items: center; }
     .project-art.medicare { background: radial-gradient(circle at 75% 10%,#48cbb1 0,transparent 34%), linear-gradient(135deg,#103446,#1e756e); }
     .project-art.playspot { background: radial-gradient(circle at 80% 15%,#ecb65b 0,transparent 28%), linear-gradient(135deg,#193143,#244f68); }
     .project-art.uninest { background: radial-gradient(circle at 70% 10%,#edb590 0,transparent 34%), linear-gradient(135deg,#754f52,#b78470); }
-    .browser-mock { width: 78%; height: 128px; padding: 10px; border: 1px solid rgba(255,255,255,.42); border-radius: 11px; background: rgba(250,252,252,.94); box-shadow: 0 16px 35px rgba(4,19,30,.2); transform: rotate(-3deg); transition: transform .4s cubic-bezier(.2,.8,.2,1); }
-    .project-card:hover .browser-mock { transform: rotate(0) scale(1.035); }
-    .mock-top { display: flex; gap: 4px; height: 12px; align-items: center; border-bottom: 1px solid #e7ecef; padding-bottom: 7px; }
-    .mock-top i { width: 4px; height: 4px; border-radius: 50%; background: #c6d0d5; }
-    .mock-layout { display: grid; grid-template-columns: 34px 1fr; height: 90px; gap: 8px; padding-top: 9px; }
-    .mock-sidebar { border-radius: 4px; background: #e6f3f1; }
-    .mock-main { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 11px 1fr; gap: 6px; }
-    .mock-title { grid-column: 1/-1; width: 54%; border-radius: 4px; background: #b4c4ca; }
-    .mock-tile { border-radius: 5px; background: linear-gradient(145deg,#ebf1f2,#d9e5e8); }
-    .medicare .mock-tile:nth-child(3) { background: linear-gradient(145deg,#c1eee2,#77c9b4); }
-    .playspot .mock-sidebar { background: #f8eedb; }
-    .playspot .mock-tile:nth-child(2) { background: #f3d9a4; }
-    .uninest .mock-sidebar { background: #f4e3dc; }
-    .uninest .mock-tile:nth-child(4) { background: #e9bca7; }
+    .project-preview { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+    .project-card:hover .project-preview { transform: scale(1.035); }
     .art-label { position: absolute; bottom: 13px; right: 16px; color: rgba(255,255,255,.78); font: 600 9px "Space Grotesk",sans-serif; letter-spacing: .12em; text-transform: uppercase; }
     .project-body { padding: 22px 21px 21px; }
     .project-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
@@ -329,7 +317,7 @@
         <div class="project-grid">
           <article class="project-card reveal">
             <div class="project-art medicare" aria-hidden="true">
-              <div class="browser-mock"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><div class="mock-sidebar"></div><div class="mock-main"><div class="mock-title"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div></div></div></div>
+              <img class="project-preview" src="assets/medicare-preview.svg" alt="" width="1200" height="600" loading="lazy" decoding="async">
               <span class="art-label">Clinic workflows</span>
             </div>
             <div class="project-body">
@@ -342,7 +330,7 @@
 
           <article class="project-card reveal">
             <div class="project-art playspot" aria-hidden="true">
-              <div class="browser-mock"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><div class="mock-sidebar"></div><div class="mock-main"><div class="mock-title"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div></div></div></div>
+              <img class="project-preview" src="assets/playspot-preview.svg" alt="" width="1200" height="600" loading="lazy" decoding="async">
               <span class="art-label">Court reservations</span>
             </div>
             <div class="project-body">
@@ -355,7 +343,7 @@
 
           <article class="project-card reveal">
             <div class="project-art uninest" aria-hidden="true">
-              <div class="browser-mock"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><div class="mock-sidebar"></div><div class="mock-main"><div class="mock-title"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div></div></div></div>
+              <img class="project-preview" src="assets/uninest-preview.svg" alt="" width="1200" height="600" loading="lazy" decoding="async">
               <span class="art-label">Student housing</span>
             </div>
             <div class="project-body">
