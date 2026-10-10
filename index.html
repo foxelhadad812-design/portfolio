@@ -1,1033 +1,478 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohamed Hassan Elhadad — Full-Stack .NET Developer</title>
-
-<!-- Primary Meta Tags -->
-<meta name="title" content="Mohamed Hassan Elhadad — Full-Stack .NET Developer">
-<meta name="description" content="Full-Stack Developer specializing in C#, .NET 10, ASP.NET Core, SQL Server, and Clean Architecture. Creator of PlaySpot and UniNest.">
-<meta name="author" content="Mohamed Hassan Elhadad">
-<meta name="keywords" content="Mohamed Elhadad, Full Stack Developer, .NET Developer, ASP.NET Core, C#, Clean Architecture, SQL Server, Software Engineer, Portfolio, EELU, DEPI">
-
-<!-- Open Graph / Facebook / LinkedIn -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mohamed Hassan Elhadad — Full-Stack .NET Developer">
-<meta property="og:description" content="Engineering robust and scalable web applications from front to back. View projects, architecture, and technical expertise.">
-<meta property="og:url" content="https://foxelhadad812-design.github.io/portfolio/">
-
-<style>
-  :root {
-    --bg-900: #F5EEE2;
-    --bg-800: #EDE2D0;
-    --bg-700: #E4D5BC;
-    --border: #D2BE9C;
-    --accent: #8B5A2B;
-    --accent-dim: rgba(139, 90, 43, 0.22);
-    --accent-light: #9C6532;
-    --text-100: #3A2A1A;
-    --text-200: #5C4630;
-    --text-400: #8A6F4E;
-    --text-500: #A6906F;
-    --badge-bg: #E8D9C2;
-    --tag-bg: #FAF5ED;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    background: var(--bg-900);
-    color: var(--text-200);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: inherit; }
-
-  .wrap {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* ---------- NAV ---------- */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(245, 238, 226, 0.94);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  nav .wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    max-width: 800px;
-  }
-
-  nav .logo {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text-100);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-    transition: color 0.2s ease;
-  }
-  nav .logo:hover { color: var(--accent); }
-
-  nav .links {
-    display: flex;
-    gap: 22px;
-  }
-
-  nav .links a {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-400);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  nav .links a:hover { color: var(--text-100); }
-
-  /* ---------- HERO ---------- */
-  .hero {
-    padding: 76px 0 84px;
-    text-align: center;
-  }
-
-  .avatar-wrap {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    margin: 0 auto 28px;
-    overflow: hidden;
-    border: 3px solid var(--accent);
-    padding: 3px;
-    box-shadow: 0 10px 28px var(--accent-dim);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .avatar-wrap:hover {
-    transform: scale(1.03);
-    box-shadow: 0 14px 32px rgba(139, 90, 43, 0.35);
-  }
-
-  .avatar-wrap img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center 15%;
-    display: block;
-  }
-
-  .hero-name {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--text-100);
-    margin: 0 0 8px;
-    letter-spacing: -0.02em;
-  }
-
-  .hero-title {
-    font-family: 'Courier New', monospace;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: var(--accent);
-    margin: 0 0 24px;
-    text-transform: uppercase;
-  }
-
-  .hero-headline {
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--text-100);
-    margin: 0 auto 14px;
-    max-width: 460px;
-    line-height: 1.45;
-  }
-
-  .hero-subtitle {
-    font-size: 14px;
-    color: var(--text-400);
-    margin: 0 auto 28px;
-    max-width: 480px;
-    line-height: 1.6;
-  }
-
-  /* Metric Highlights Grid */
-  .hero-metrics {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin: 0 auto 32px;
-    max-width: 580px;
-    padding: 16px 20px;
-    background: var(--bg-800);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-  }
-
-  .metric-item {
-    text-align: center;
-    flex: 1;
-  }
-
-  .metric-number {
-    font-family: Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text-100);
-    margin-bottom: 2px;
-  }
-
-  .metric-label {
-    font-size: 11px;
-    color: var(--text-400);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-  }
-
-  .divider {
-    width: 36px;
-    height: 2px;
-    background: var(--accent);
-    margin: 0 auto 28px;
-    border-radius: 2px;
-  }
-
-  .hero-stack {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 34px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-400);
-  }
-
-  .hero-stack .dot { color: var(--accent); }
-
-  .cta-group {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--accent);
-    border: 1px solid var(--accent);
-    color: #FFFFFF;
-    padding: 12px 26px;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    box-shadow: 0 4px 14px var(--accent-dim);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
-  }
-
-  .cta:hover {
-    transform: translateY(-2px);
-    background: var(--accent-light);
-    border-color: var(--accent-light);
-    box-shadow: 0 6px 18px rgba(139, 90, 43, 0.35);
-  }
-
-  .cta-outline {
-    background: transparent;
-    color: var(--accent);
-    box-shadow: none;
-  }
-
-  .cta-outline:hover {
-    background: var(--accent);
-    color: #FFFFFF;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px var(--accent-dim);
-  }
-
-  /* ---------- SECTIONS (general) ---------- */
-  section.block {
-    padding: 76px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  section.block.tinted { background: var(--bg-800); }
-
-  .section-label {
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin: 0 0 10px;
-    font-weight: 700;
-  }
-
-  .section-heading {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--text-100);
-    margin: 0 0 28px;
-    letter-spacing: -0.01em;
-  }
-
-  /* ---------- ABOUT ---------- */
-  .about-text {
-    font-size: 15px;
-    color: var(--text-200);
-    max-width: 640px;
-  }
-
-  .about-text p { margin: 0 0 16px; line-height: 1.7; }
-
-  .about-facts {
-    margin-top: 32px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px 28px;
-  }
-
-  .about-fact {
-    border-left: 2px solid var(--accent);
-    padding-left: 14px;
-  }
-
-  .about-fact .label {
-    font-size: 11px;
-    color: var(--text-500);
-    margin: 0 0 3px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 600;
-  }
-
-  .about-fact .value {
-    font-size: 13px;
-    color: var(--text-100);
-    margin: 0;
-    font-weight: 600;
-  }
-
-  /* ---------- SERVICES ---------- */
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 22px;
-  }
-
-  .service-card {
-    background: var(--bg-700);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 26px;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-  }
-
-  .service-icon {
-    width: 38px;
-    height: 38px;
-    background: var(--bg-900);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    margin-bottom: 16px;
-  }
-
-  .service-title {
-    font-family: Georgia, serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-100);
-    margin: 0 0 8px;
-  }
-
-  .service-desc {
-    font-size: 13px;
-    color: var(--text-400);
-    margin: 0;
-    line-height: 1.55;
-  }
-
-  /* ---------- PROJECTS ---------- */
-  .projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .project-card {
-    background: var(--bg-700);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 34px;
-    position: relative;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.05);
-  }
-
-  .project-card.featured-project {
-    border: 1.5px solid var(--accent);
-    background: linear-gradient(180deg, var(--bg-700) 0%, rgba(228, 213, 188, 0.6) 100%);
-  }
-
-  .project-badge-flagship {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--accent);
-    color: #FFFFFF;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 14px;
-  }
-
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 4px;
-    flex-wrap: wrap;
-  }
-
-  .project-card .project-name {
-    font-family: Georgia, serif;
-    font-size: 23px;
-    color: var(--text-100);
-    margin: 0;
-  }
-
-  .project-tag-pill {
-    font-size: 11px;
-    color: var(--accent);
-    background: var(--bg-900);
-    border: 1px solid var(--border);
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-weight: 600;
-  }
-
-  .project-card .project-role {
-    font-size: 12px;
-    color: var(--accent);
-    margin: 0 0 16px;
-    font-weight: 600;
-  }
-
-  .project-card .project-desc {
-    font-size: 14px;
-    color: var(--text-400);
-    margin: 0 0 22px;
-    max-width: 640px;
-    line-height: 1.65;
-  }
-
-  .project-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 20px;
-  }
-
-  .project-features li {
-    font-size: 13px;
-    color: var(--text-200);
-    padding-left: 14px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .project-features li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 7px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
-  }
-
-  .project-tags span {
-    font-size: 11px;
-    color: var(--text-200);
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 4px 10px;
-    font-weight: 500;
-  }
-
-  .project-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
-
-  .project-cta {
-    padding: 9px 20px;
-    font-size: 12px;
-  }
-
-  .project-note {
-    font-size: 12px;
-    color: var(--text-500);
-    font-style: italic;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  /* ---------- SKILLS ---------- */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 28px 24px;
-  }
-
-  .skill-group .skill-group-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-100);
-    margin: 0 0 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .skill-group ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .skill-group li {
-    font-size: 13px;
-    color: var(--text-400);
-    padding: 6px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .skill-group li:last-child { border-bottom: none; }
-
-  /* ---------- CERTIFICATIONS ---------- */
-  .cert-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .cert-item {
-    background: var(--bg-700);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 18px 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    transition: border-color 0.2s ease;
-  }
-
-  .cert-item:hover { border-color: var(--accent); }
-
-  .cert-name {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-100);
-    margin: 0 0 4px;
-  }
-
-  .cert-issuer {
-    font-size: 12px;
-    color: var(--text-400);
-    margin: 0;
-  }
-
-  .cert-verify {
-    font-size: 12px;
-    color: var(--accent);
-    text-decoration: none;
-    white-space: nowrap;
-    flex-shrink: 0;
-    font-weight: 600;
-  }
-
-  .cert-verify:hover { text-decoration: underline; }
-
-  /* ---------- CONTACT ---------- */
-  .contact {
-    text-align: center;
-  }
-
-  .contact-text {
-    font-size: 15px;
-    color: var(--text-400);
-    max-width: 440px;
-    margin: 0 auto 32px;
-    line-height: 1.6;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  footer {
-    padding: 34px 0 48px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-500);
-    border-top: 1px solid var(--border);
-  }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 640px) {
-    nav .links { gap: 12px; }
-    nav .links a { font-size: 12px; }
-    .hero-metrics { flex-direction: column; gap: 14px; }
-    .about-facts { grid-template-columns: 1fr; }
-    .services-grid { grid-template-columns: 1fr; }
-    .project-features { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .cert-item { flex-direction: column; align-items: flex-start; }
-    .section-heading { font-size: 22px; }
-  }
-
-  /* ---------- ACCESSIBILITY ---------- */
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; }
-    html { scroll-behavior: auto; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1420">
+  <title>Mohamed Elhadad — .NET Developer</title>
+  <meta name="description" content="Mohamed Elhadad is a computer science student and .NET developer building practical web applications with C#, ASP.NET Core, and SQL Server.">
+  <meta name="author" content="Mohamed Hassan Elhadad">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohamed Elhadad — .NET Developer">
+  <meta property="og:description" content="Selected projects and experience building web applications with C# and ASP.NET Core.">
+  <meta property="og:url" content="https://foxelhadad812-design.github.io/portfolio/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101a27;
+      --muted: #637184;
+      --paper: #f6f8fa;
+      --white: #fff;
+      --line: #e1e7ec;
+      --teal: #087f79;
+      --teal-bright: #55e2cc;
+      --sky: #8fcfff;
+      --navy: #0b1420;
+      --navy-2: #111f2e;
+      --radius: 20px;
+      --shadow: 0 18px 50px rgba(15, 33, 51, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 "DM Sans", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--teal-bright); outline-offset: 4px; }
+    .progress { position: fixed; inset: 0 auto auto 0; z-index: 200; width: 0; height: 3px; background: var(--teal-bright); }
+    .site-header {
+      position: absolute; inset: 0 0 auto; z-index: 20;
+      color: #eaf2f8; border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+    .nav-wrap {
+      max-width: 1160px; height: 76px; margin: auto; padding: 0 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font: 600 15px "Space Grotesk", sans-serif; letter-spacing: -.02em; }
+    .brand-mark {
+      width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px;
+      color: var(--navy); background: var(--teal-bright); font-weight: 700; font-size: 14px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { color: #bdc9d5; text-decoration: none; font-size: 13px; transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a[aria-current="location"] { color: var(--teal-bright); }
+    .nav-links .nav-contact { color: var(--navy); background: var(--teal-bright); padding: 9px 16px; border-radius: 999px; font-weight: 700; }
+    .nav-links .nav-contact:hover { color: var(--navy); background: #a3f4e7; }
+    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: transparent; color: #fff; cursor: pointer; }
+    .menu-toggle span, .menu-toggle::before, .menu-toggle::after { content: ""; display: block; width: 18px; height: 2px; background: currentColor; margin: 4px auto; transition: transform .2s ease, opacity .2s ease; }
+    .hero {
+      position: relative; overflow: hidden; min-height: 690px; padding: 148px 0 96px;
+      color: #eef5fb; background:
+        radial-gradient(ellipse at 83% 32%, rgba(27,139,145,.22), transparent 32%),
+        radial-gradient(ellipse at 16% 94%, rgba(44,96,144,.20), transparent 38%),
+        linear-gradient(130deg, var(--navy), #0c1b29 62%, #102c39);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; opacity: .16; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+      background-size: 48px 48px; mask-image: linear-gradient(90deg, transparent, #000 85%);
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 330px; height: 330px; right: 8%; top: 16%;
+      border: 1px solid rgba(85,226,204,.16); border-radius: 50%; box-shadow: 0 0 0 34px rgba(85,226,204,.025), 0 0 0 72px rgba(85,226,204,.02);
+      animation: orbit 18s linear infinite; pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 1160px; padding: 0 28px; margin: auto; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 60px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #a9c2d3; font: 600 12px "Space Grotesk", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--teal-bright); }
+    .hero h1 { margin: 19px 0 12px; font: 600 clamp(44px, 6vw, 72px)/1.03 "Space Grotesk", sans-serif; letter-spacing: -.065em; max-width: 700px; }
+    .hero h1 span { color: var(--teal-bright); }
+    .hero-role { margin: 0 0 19px; color: #d7e2ea; font: 500 17px "Space Grotesk", sans-serif; }
+    .hero-copy { max-width: 540px; margin: 0; color: #aebdca; font-size: 16px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button {
+      min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 0 19px; border-radius: 999px; border: 1px solid transparent; text-decoration: none;
+      font-weight: 700; font-size: 13px; transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary { color: var(--navy); background: var(--teal-bright); box-shadow: 0 8px 24px rgba(85,226,204,.2); }
+    .button-primary:hover { background: #a5f5e9; box-shadow: 0 12px 28px rgba(85,226,204,.27); }
+    .button-ghost { color: #e5edf4; border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.035); }
+    .button-ghost:hover { border-color: var(--teal-bright); background: rgba(85,226,204,.08); }
+    .hero-note { margin-top: 25px; color: #8194a5; font-size: 12px; }
+    .hero-note span { color: var(--teal-bright); }
+    .portrait-stage { position: relative; width: min(100%, 365px); justify-self: end; padding: 15px; }
+    .portrait-frame {
+      aspect-ratio: .82; position: relative; overflow: hidden; border-radius: 180px 180px 28px 28px;
+      background: linear-gradient(145deg, #395c68, #142632 68%); border: 1px solid rgba(255,255,255,.19);
+      box-shadow: 0 30px 90px rgba(0,0,0,.32);
+    }
+    .portrait-frame::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 57%, rgba(8,18,28,.58)); z-index: 1; }
+    .portrait-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 18%; filter: saturate(.78); }
+    .portrait-orbit { position: absolute; z-index: 2; border: 1px solid rgba(85,226,204,.42); border-radius: 50%; width: 90px; height: 90px; right: -7px; top: 50px; animation: float 5s ease-in-out infinite; }
+    .portrait-orbit::after { content: ""; position: absolute; width: 11px; height: 11px; border-radius: 50%; background: var(--teal-bright); top: 9px; left: 10px; box-shadow: 0 0 22px var(--teal-bright); }
+    .floating-card {
+      position: absolute; z-index: 3; display: flex; align-items: center; gap: 11px;
+      padding: 12px 15px; border: 1px solid rgba(255,255,255,.13); border-radius: 14px;
+      color: #eaf2f8; background: rgba(18,34,47,.83); backdrop-filter: blur(14px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.22); animation: float 6s ease-in-out infinite;
+    }
+    .floating-card.one { left: -44px; top: 30%; }
+    .floating-card.two { right: -24px; bottom: 10%; animation-delay: -2.5s; }
+    .float-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: rgba(85,226,204,.12); color: var(--teal-bright); font: 700 12px "Space Grotesk", sans-serif; }
+    .float-label { display: block; font-size: 10px; color: #91a3b1; }
+    .float-value { display: block; font: 600 12px "Space Grotesk", sans-serif; }
+    .section { padding: 102px 0; }
+    .container { width: min(1160px, 100%); margin: auto; padding: 0 28px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 43px; }
+    .section-kicker { margin: 0 0 10px; color: var(--teal); font: 700 11px "Space Grotesk", sans-serif; letter-spacing: .15em; text-transform: uppercase; }
+    .section-title { margin: 0; color: var(--ink); font: 600 clamp(30px,4vw,43px)/1.15 "Space Grotesk", sans-serif; letter-spacing: -.045em; }
+    .section-intro { max-width: 440px; margin: 0; color: var(--muted); font-size: 14px; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: start; }
+    .about-lead { margin: 0; color: var(--ink); font: 500 25px/1.45 "Space Grotesk", sans-serif; letter-spacing: -.025em; }
+    .about-copy { margin: 0; color: var(--muted); }
+    .about-copy + .about-copy { margin-top: 16px; }
+    .about-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
+    .fact { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: #536273; font-size: 11px; }
+    .fact strong { color: var(--ink); }
+    .projects-section { background: #edf2f5; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 19px; align-items: stretch; }
+    .project-card { min-width: 0; overflow: hidden; border: 1px solid #dce4e9; border-radius: var(--radius); background: #fff; box-shadow: 0 7px 25px rgba(17,38,54,.035); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
+    .project-card:hover { transform: translateY(-7px); border-color: rgba(8,127,121,.35); box-shadow: var(--shadow); }
+    .project-art { height: 190px; position: relative; overflow: hidden; display: grid; place-items: center; }
+    .project-art.medicare { background: radial-gradient(circle at 75% 10%,#48cbb1 0,transparent 34%), linear-gradient(135deg,#103446,#1e756e); }
+    .project-art.playspot { background: radial-gradient(circle at 80% 15%,#ecb65b 0,transparent 28%), linear-gradient(135deg,#193143,#244f68); }
+    .project-art.uninest { background: radial-gradient(circle at 70% 10%,#edb590 0,transparent 34%), linear-gradient(135deg,#754f52,#b78470); }
+    .browser-mock { width: 78%; height: 128px; padding: 10px; border: 1px solid rgba(255,255,255,.42); border-radius: 11px; background: rgba(250,252,252,.94); box-shadow: 0 16px 35px rgba(4,19,30,.2); transform: rotate(-3deg); transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+    .project-card:hover .browser-mock { transform: rotate(0) scale(1.035); }
+    .mock-top { display: flex; gap: 4px; height: 12px; align-items: center; border-bottom: 1px solid #e7ecef; padding-bottom: 7px; }
+    .mock-top i { width: 4px; height: 4px; border-radius: 50%; background: #c6d0d5; }
+    .mock-layout { display: grid; grid-template-columns: 34px 1fr; height: 90px; gap: 8px; padding-top: 9px; }
+    .mock-sidebar { border-radius: 4px; background: #e6f3f1; }
+    .mock-main { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 11px 1fr; gap: 6px; }
+    .mock-title { grid-column: 1/-1; width: 54%; border-radius: 4px; background: #b4c4ca; }
+    .mock-tile { border-radius: 5px; background: linear-gradient(145deg,#ebf1f2,#d9e5e8); }
+    .medicare .mock-tile:nth-child(3) { background: linear-gradient(145deg,#c1eee2,#77c9b4); }
+    .playspot .mock-sidebar { background: #f8eedb; }
+    .playspot .mock-tile:nth-child(2) { background: #f3d9a4; }
+    .uninest .mock-sidebar { background: #f4e3dc; }
+    .uninest .mock-tile:nth-child(4) { background: #e9bca7; }
+    .art-label { position: absolute; bottom: 13px; right: 16px; color: rgba(255,255,255,.78); font: 600 9px "Space Grotesk",sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    .project-body { padding: 22px 21px 21px; }
+    .project-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+    .project-name { margin: 0; color: var(--ink); font: 600 20px "Space Grotesk",sans-serif; letter-spacing: -.035em; }
+    .project-type { padding: 5px 8px; border-radius: 999px; color: #526474; background: #f0f4f6; font-size: 9px; font-weight: 700; white-space: nowrap; }
+    .project-desc { min-height: 68px; margin: 0 0 17px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .project-tags span { padding: 5px 8px; border: 1px solid #e4eaed; border-radius: 7px; color: #4d5c69; font-size: 10px; }
+    .project-link { display: inline-flex; align-items: center; gap: 8px; color: var(--teal); text-decoration: none; font-size: 12px; font-weight: 700; }
+    .project-link svg { transition: transform .2s ease; }
+    .project-link:hover svg { transform: translateX(4px); }
+    .skills-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 65px; align-items: start; }
+    .skills-copy { max-width: 440px; color: var(--muted); font-size: 14px; }
+    .skill-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .skill-group { padding: 19px; border: 1px solid var(--line); border-radius: 15px; background: #fff; }
+    .skill-group h3 { margin: 0 0 14px; color: var(--ink); font: 600 13px "Space Grotesk",sans-serif; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-list span { padding: 6px 9px; border-radius: 7px; color: #526273; background: #f1f5f6; font-size: 10px; }
+    .learning { margin-top: 22px; padding: 17px 19px; border-left: 3px solid var(--teal); border-radius: 0 12px 12px 0; color: #526273; background: #eaf5f3; font-size: 12px; }
+    .learning strong { color: var(--ink); }
+    .credentials { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .credential-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .credential { display: flex; gap: 13px; align-items: center; min-height: 78px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; }
+    .credential-mark { flex: 0 0 35px; height: 35px; display: grid; place-items: center; border-radius: 11px; background: #eaf5f3; color: var(--teal); font: 700 11px "Space Grotesk",sans-serif; }
+    .credential strong { display: block; color: var(--ink); font: 600 12px "Space Grotesk",sans-serif; }
+    .credential span { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .contact-section { padding: 95px 0; color: #edf6fa; background: linear-gradient(120deg,#0c1925,#122c39); }
+    .contact-box { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .contact-box .section-title { color: #f2f7fb; }
+    .contact-box .section-kicker { color: var(--teal-bright); }
+    .contact-copy { max-width: 480px; margin: 13px 0 0; color: #aebdca; font-size: 14px; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    footer { padding: 23px 28px; color: #8595a2; background: #09121b; text-align: center; font-size: 11px; }
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.75,.25,1); }
+    .js .reveal.visible { opacity: 1; transform: translateY(0); }
+    .project-card:nth-child(2) { transition-delay: .08s; }
+    .project-card:nth-child(3) { transition-delay: .16s; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @media (max-width: 920px) {
+      .hero-inner { grid-template-columns: 1fr .66fr; gap: 30px; }
+      .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .project-desc { min-height: 0; }
+      .about-grid { gap: 45px; }
+      .nav-links { gap: 18px; }
+    }
+    @media (max-width: 680px) {
+      html { scroll-padding-top: 74px; }
+      .nav-wrap { height: 68px; padding: 0 20px; }
+      .menu-toggle { display: block; position: relative; z-index: 2; }
+      .nav-links {
+        position: absolute; top: 59px; left: 14px; right: 14px; display: none; align-items: stretch;
+        padding: 12px; border: 1px solid rgba(255,255,255,.13); border-radius: 16px;
+        background: rgba(12,25,37,.97); box-shadow: 0 18px 45px rgba(0,0,0,.28);
+      }
+      .nav-links.open { display: flex; flex-direction: column; gap: 2px; }
+      .nav-links a { padding: 11px 12px; border-radius: 9px; }
+      .nav-links a:hover { background: rgba(255,255,255,.06); }
+      .nav-links .nav-contact { text-align: center; margin-top: 5px; }
+      .menu-toggle[aria-expanded="true"] span { opacity: 0; }
+      .menu-toggle[aria-expanded="true"]::before { transform: translateY(6px) rotate(45deg); }
+      .menu-toggle[aria-expanded="true"]::after { transform: translateY(-6px) rotate(-45deg); }
+      .hero { min-height: auto; padding: 120px 0 70px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 39px; padding: 0 22px; }
+      .hero h1 { font-size: clamp(43px,12vw,64px); }
+      .hero-copy { max-width: 580px; font-size: 14px; }
+      .portrait-stage { width: min(75%,300px); justify-self: center; margin-top: 3px; }
+      .portrait-frame { aspect-ratio: .92; border-radius: 145px 145px 24px 24px; }
+      .portrait-orbit { right: -21px; width: 70px; height: 70px; }
+      .floating-card.one { left: -33px; }
+      .floating-card.two { right: -25px; }
+      .section { padding: 72px 0; }
+      .container { padding: 0 22px; }
+      .section-head { display: block; margin-bottom: 30px; }
+      .section-intro { margin-top: 13px; }
+      .about-grid, .skills-grid { grid-template-columns: 1fr; gap: 26px; }
+      .about-lead { font-size: 22px; }
+      .project-grid { grid-template-columns: 1fr; gap: 14px; }
+      .project-art { height: 180px; }
+      .project-body { padding: 20px; }
+      .skill-groups { gap: 12px; }
+      .credential-list { grid-template-columns: 1fr; }
+      .contact-section { padding: 70px 0; }
+      .contact-box { display: block; }
+      .contact-actions { margin-top: 23px; }
+    }
+    @media (max-width: 390px) {
+      .skill-groups { grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; }
+      .project-topline { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-
-<nav>
-  <div class="wrap">
-    <a href="#top" class="logo">M. Elhadad</a>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-  <header class="hero" id="top">
-    <div class="wrap">
-      <div class="avatar-wrap">
-        <img src="profile.jpg" alt="Mohamed Hassan Elhadad" />
+  <div class="progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Mohamed Elhadad, home"><span class="brand-mark">M.</span><span>Mohamed Elhadad</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#credentials">Credentials</a>
+        <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
       </div>
-      <h1 class="hero-name">Mohamed Hassan Elhadad</h1>
-      <p class="hero-title">Full-Stack .NET Developer</p>
-
-      <h2 class="hero-headline">Engineering robust and scalable web applications</h2>
-      <p class="hero-subtitle">Not a mockup. Real, working products &mdash; built front to back with Clean Architecture, tested with rigorous automation, and ready to deploy.</p>
-
-      <!-- Key Engineering Metrics -->
-      <div class="hero-metrics">
-        <div class="metric-item">
-          <div class="metric-number">2+</div>
-          <div class="metric-label">Full-Stack Systems</div>
-        </div>
-        <div class="metric-item">
-          <div class="metric-number">360+</div>
-          <div class="metric-label">Automated Tests</div>
-        </div>
-        <div class="metric-item">
-          <div class="metric-number">100%</div>
-          <div class="metric-label">End-to-End Build</div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="hero-stack">
-        <span>C# &amp; .NET 10</span>
-        <span class="dot">&middot;</span>
-        <span>ASP.NET Core</span>
-        <span class="dot">&middot;</span>
-        <span>SQL Server</span>
-        <span class="dot">&middot;</span>
-        <span>Clean Architecture</span>
-        <span class="dot">&middot;</span>
-        <span>SignalR</span>
-      </div>
-
-      <div class="cta-group">
-        <a href="#projects" class="cta">
-          <span>View my work</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="https://github.com/foxelhadad812-design" class="cta cta-outline" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
+    </nav>
   </header>
 
-  <section class="block" id="about">
-    <div class="wrap">
-      <p class="section-label">About</p>
-      <h2 class="section-heading">A developer who ships the whole stack</h2>
-      <div class="about-text">
-        <p>I'm a Computer Science student at EELU, currently training in the DEPI .NET Full Stack Development track. I build complete web platforms myself — frontend, backend, database, and business architecture — rather than piecing together templates or handing off half the work.</p>
-        <p>My proof of work includes <strong>PlaySpot (CourtBook)</strong>, an enterprise multi-tenant sports facility booking platform backed by 360+ automated tests, and <strong>UniNest</strong>, a student housing platform built end to end. I combine high-performance C# backend engineering with clean, accessible interfaces and a working knowledge of machine learning.</p>
-      </div>
-      <div class="about-facts">
-        <div class="about-fact">
-          <p class="label">Education</p>
-          <p class="value">B.Sc. Computer Science, EELU (Fayoum branch)</p>
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Computer Science · EELU Fayoum</span>
+          <h1>Good ideas,<br><span>built for real life.</span></h1>
+          <p class="hero-role">Full-Stack .NET Developer</p>
+          <p class="hero-copy">I build practical web applications with C#, ASP.NET Core, and SQL Server—from the data model and business rules to the interface people use.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore my projects <span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost" href="https://github.com/foxelhadad812-design" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-note"><span>●</span> Currently training in the DEPI .NET Full-Stack track</p>
         </div>
-        <div class="about-fact">
-          <p class="label">Current training</p>
-          <p class="value">DEPI — .NET Full Stack Development (SWD5)</p>
-        </div>
-        <div class="about-fact">
-          <p class="label">Core stack</p>
-          <p class="value">C#, .NET 10, ASP.NET Core, SQL Server, EF Core</p>
-        </div>
-        <div class="about-fact">
-          <p class="label">Architecture &amp; Quality</p>
-          <p class="value">Clean Architecture, SignalR, xUnit (362 tests)</p>
+        <div class="portrait-stage reveal" aria-label="Portrait and technology highlights">
+          <div class="portrait-orbit" aria-hidden="true"></div>
+          <div class="portrait-frame"><img src="profile.jpg" alt="Portrait of Mohamed Elhadad"></div>
+          <div class="floating-card one"><span class="float-icon">C#</span><span><span class="float-label">Building with</span><span class="float-value">ASP.NET Core</span></span></div>
+          <div class="floating-card two"><span class="float-icon">SQL</span><span><span class="float-label">Data &amp; persistence</span><span class="float-value">SQL Server · EF Core</span></span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block tinted" id="services">
-    <div class="wrap">
-      <p class="section-label">Services</p>
-      <h2 class="section-heading">Capabilities &amp; Expertise</h2>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3 class="service-title">Full-Stack Platforms</h3>
-          <p class="service-desc">Complete web applications with responsive UI, role-based authorization, database-backed business logic, and automated tests.</p>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="section-kicker">A little about me</p><h2 class="section-title">Thoughtful code.<br>Useful outcomes.</h2></div>
+          <p class="section-intro">I like understanding the full problem before choosing the technology. Then I build in clear steps, keep the code maintainable, and make sure the result works for the people using it.</p>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-          </div>
-          <h3 class="service-title">Clean Architecture &amp; APIs</h3>
-          <p class="service-desc">Scalable RESTful APIs and domain models using Onion / Clean Architecture, EF Core ORM, and high-concurrency SQL Server design.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <h3 class="service-title">Payments &amp; Real-Time</h3>
-          <p class="service-desc">Payment gateway integrations (Paymob, Escrow &amp; Payouts) and real-time interactive user experiences using SignalR.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="projects">
-    <div class="wrap">
-      <p class="section-label">Projects</p>
-      <h2 class="section-heading">Featured work</h2>
-
-      <div class="projects-list">
-        <!-- ═════════ PROJECT 1: PlaySpot (CourtBook) ═════════ -->
-        <div class="project-card featured-project">
-          <div class="project-badge-flagship">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span>Flagship Enterprise Project</span>
-          </div>
-
-          <div class="project-header">
-            <h3 class="project-name">PlaySpot (CourtBook)</h3>
-            <span class="project-tag-pill">Full-Stack Enterprise Ecosystem</span>
-          </div>
-          <p class="project-role">Sports Facility &amp; Real-Time Court Booking Marketplace Platform &mdash; Solo Build</p>
-          <p class="project-desc">A production-grade, multi-tenant sports facility reservation platform engineered for the Egyptian market (Cairo, Giza, Alexandria). Features four isolated role portals (Players, Facility Owners, Receptionists, and Platform Admins), a high-concurrency Slot Availability Engine with atomic conflict locking, a commercial promo &amp; rental add-ons system, Paymob escrow payouts, and SignalR live notifications.</p>
-
-          <ul class="project-features">
-            <li>Multi-Role Portals (Player, Venue Owner, Receptionist, Admin)</li>
-            <li>Real-time Slot Availability Engine &amp; atomic conflict prevention</li>
-            <li>Commercial Promo Code Engine (Percentage/Fixed, Usage Limits)</li>
-            <li>Equipment Rental Add-ons (Rackets, Balls) &amp; dynamic pricing</li>
-            <li>Owner Walk-in / Phone Reservation &amp; Receptionist Quick Check-in</li>
-            <li>Instant WhatsApp Booking Card Sharing with pre-formatted invites</li>
-            <li>Paymob Payment Gateway &amp; Automated Escrow / Payout Batches</li>
-            <li>362 Automated Unit &amp; Integration Tests (100% Passing)</li>
-          </ul>
-
-          <div class="project-tags">
-            <span>C#</span>
-            <span>.NET 10</span>
-            <span>ASP.NET Core Web API</span>
-            <span>Razor Pages</span>
-            <span>EF Core 10</span>
-            <span>SQL Server</span>
-            <span>Clean Architecture</span>
-            <span>SignalR</span>
-            <span>Paymob Gateway</span>
-            <span>xUnit (362 Tests)</span>
-            <span>Bootstrap 5 (RTL/LTR)</span>
-          </div>
-
-          <div class="project-actions">
-            <a href="https://github.com/foxelhadad812-design/CourtBook" class="cta project-cta" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>View Source Code</span>
-            </a>
-            <a href="https://nearest-this-dallas-gentleman.trycloudflare.com" class="cta cta-outline project-cta" target="_blank" rel="noopener">
-              <span>Live Preview (Tunnel)</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            </a>
-          </div>
-
-          <p class="project-note">Structured across 5 Clean Architecture layers (Domain, Application, Infrastructure, API, Web). Full codebase, EF migrations, and 362 test specs documented in the repository.</p>
-        </div>
-
-        <!-- ═════════ PROJECT 2: UniNest ═════════ -->
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-name">UniNest</h3>
-            <span class="project-tag-pill">Student Housing Platform</span>
-          </div>
-          <p class="project-role">Student housing platform &mdash; full stack build</p>
-          <p class="project-desc">A full-stack platform connecting verified housing listings with students near EELU Fayoum &mdash; a working frontend paired with an ASP.NET Core API and a SQL Server database (Users, Properties, Amenities, Favorites), designed database-first.</p>
-
-          <ul class="project-features">
-            <li>Home, listings &amp; property detail pages</li>
-            <li>Login and registration flow</li>
-            <li>User profile management</li>
-            <li>Add-property submission form</li>
-          </ul>
-
-          <div class="project-tags">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>ASP.NET Core</span>
-            <span>SQL Server</span>
-            <span>GitHub Pages</span>
-          </div>
-
-          <div class="project-actions">
-            <a href="https://foxelhadad812-design.github.io/uninest/" class="cta project-cta" target="_blank" rel="noopener">
-              <span>View live site</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            </a>
-            <a href="https://github.com/foxelhadad812-design/uninest" class="cta cta-outline project-cta" target="_blank" rel="noopener">
-              <span>View Source Code</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-          </div>
-
-          <p class="project-note">The live demo above shows the frontend; the ASP.NET Core + SQL Server backend is complete and available in the source repository.</p>
-        </div>
-
-        <!-- ═════════ PROJECT 3: E-Commerce Web API Architecture ═════════ -->
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-name">E-Commerce Web API Architecture</h3>
-            <span class="project-tag-pill">RESTful API Design</span>
-          </div>
-          <p class="project-role">Backend API &amp; Database Design &mdash; RESTful architecture</p>
-          <p class="project-desc">A modular ASP.NET Core RESTful API service for e-commerce management. Features JWT user authentication, role-based authorization, Entity Framework Core ORM with SQL Server, and Swagger documentation.</p>
-
-          <ul class="project-features">
-            <li>JWT Token Authentication &amp; Authorization</li>
-            <li>Repository &amp; Unit of Work patterns</li>
-            <li>Product management, Cart &amp; Order processing</li>
-            <li>Swagger/OpenAPI documentation integration</li>
-          </ul>
-
-          <div class="project-tags">
-            <span>C#</span>
-            <span>ASP.NET Core API</span>
-            <span>EF Core</span>
-            <span>SQL Server</span>
-            <span>JWT Auth</span>
-            <span>Swagger</span>
-          </div>
-
-          <div class="project-actions">
-            <a href="https://github.com/foxelhadad812-design" class="cta cta-outline project-cta" target="_blank" rel="noopener">
-              <span>View GitHub Repositories</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
+        <div class="about-grid reveal">
+          <p class="about-lead">I’m Mohamed, a Computer Science student focused on building full-stack applications with .NET.</p>
+          <div>
+            <p class="about-copy">My projects cover clinic workflows, sports bookings, and student housing. Each one has taught me how to connect backend rules, data, and interface into a complete product.</p>
+            <p class="about-copy">I’m especially interested in ASP.NET Core, relational database design, API development, and writing tests for important application behavior.</p>
+            <div class="about-facts">
+              <span class="fact"><strong>Study:</strong> Computer Science, EELU</span>
+              <span class="fact"><strong>Track:</strong> DEPI .NET Full Stack</span>
+              <span class="fact"><strong>Focus:</strong> Backend &amp; Web Apps</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block tinted" id="skills">
-    <div class="wrap">
-      <p class="section-label">Skills</p>
-      <h2 class="section-heading">What I work with</h2>
-
-      <div class="skills-grid">
-        <div class="skill-group">
-          <p class="skill-group-title">Backend &amp; DB</p>
-          <ul>
-            <li>C# &amp; .NET 10 / .NET 9</li>
-            <li>ASP.NET Core Web API &amp; Razor Pages</li>
-            <li>Clean Architecture &amp; DDD</li>
-            <li>Entity Framework Core &amp; LINQ</li>
-            <li>SQL Server, T-SQL &amp; Triggers</li>
-            <li>SignalR (Real-time WebSockets)</li>
-            <li>xUnit Testing &amp; TDD (360+ tests)</li>
-          </ul>
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="section-kicker">Selected work</p><h2 class="section-title">Projects with a purpose.</h2></div>
+          <p class="section-intro">A few of the systems I’ve built and the problems they’re designed to solve.</p>
         </div>
-        <div class="skill-group">
-          <p class="skill-group-title">Frontend</p>
-          <ul>
-            <li>HTML5 &amp; Semantic Markup</li>
-            <li>CSS3, Flexbox &amp; CSS Grid</li>
-            <li>JavaScript (ES6+)</li>
-            <li>Bootstrap 5 &amp; Modern UI</li>
-            <li>Bilingual UI (Arabic RTL &amp; LTR)</li>
-            <li>Responsive &amp; Mobile-First Design</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group-title">Integrations &amp; Tools</p>
-          <ul>
-            <li>Paymob Payment Gateway</li>
-            <li>Git &amp; GitHub Version Control</li>
-            <li>REST API Architecture &amp; Swagger</li>
-            <li>Python &amp; scikit-learn (ML)</li>
-            <li>JWT &amp; Role-based Security</li>
-            <li>Cloudflare Tunnels &amp; Hosting</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-art medicare" aria-hidden="true">
+              <div class="browser-mock"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><div class="mock-sidebar"></div><div class="mock-main"><div class="mock-title"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div></div></div></div>
+              <span class="art-label">Clinic workflows</span>
+            </div>
+            <div class="project-body">
+              <div class="project-topline"><h3 class="project-name">MediCare</h3><span class="project-type">Graduation project</span></div>
+              <p class="project-desc">A clinic management system for appointments, patient records, prescriptions, and role-based workflows. Includes an optional AI chat assistant with a local fallback.</p>
+              <div class="project-tags"><span>.NET 8</span><span>ASP.NET Core MVC</span><span>EF Core</span><span>SQL Server</span><span>SignalR</span></div>
+              <a class="project-link" href="https://github.com/foxelhadad812-design/MediCare" target="_blank" rel="noopener noreferrer">Explore the project <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
 
-  <section class="block" id="certifications">
-    <div class="wrap">
-      <p class="section-label">Certifications</p>
-      <h2 class="section-heading">Verified credentials</h2>
+          <article class="project-card reveal">
+            <div class="project-art playspot" aria-hidden="true">
+              <div class="browser-mock"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><div class="mock-sidebar"></div><div class="mock-main"><div class="mock-title"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div></div></div></div>
+              <span class="art-label">Court reservations</span>
+            </div>
+            <div class="project-body">
+              <div class="project-topline"><h3 class="project-name">PlaySpot</h3><span class="project-type">CourtBook</span></div>
+              <p class="project-desc">A sports venue booking platform with player and venue workflows, court availability, real-time updates, and payment integration.</p>
+              <div class="project-tags"><span>.NET 10</span><span>Clean Architecture</span><span>SQL Server</span><span>SignalR</span><span>xUnit</span></div>
+              <a class="project-link" href="https://github.com/foxelhadad812-design/CourtBook" target="_blank" rel="noopener noreferrer">Explore the project <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
 
-      <div class="cert-list">
-        <div class="cert-item">
-          <div class="cert-main">
-            <p class="cert-name">Microsoft Certified: Azure Fundamentals</p>
-            <p class="cert-issuer">Microsoft &middot; Issued August 2026</p>
-          </div>
-          <a href="https://verify.certiport.com/" class="cert-verify" target="_blank" rel="noopener">Verify &rarr;</a>
-        </div>
-
-        <div class="cert-item">
-          <div class="cert-main">
-            <p class="cert-name">CCNA: Introduction to Networks</p>
-            <p class="cert-issuer">Cisco Networking Academy &middot; EELU &middot; May 2026</p>
-          </div>
-          <span class="cert-verify">Verified</span>
-        </div>
-
-        <div class="cert-item">
-          <div class="cert-main">
-            <p class="cert-name">Generative AI — Certificate of Attendance</p>
-            <p class="cert-issuer">CIB Summer Internship Program &middot; July 2026</p>
-          </div>
-          <span class="cert-verify">Verified</span>
-        </div>
-
-        <div class="cert-item">
-          <div class="cert-main">
-            <p class="cert-name">International Certification for Artificial Intelligence License</p>
-            <p class="cert-issuer">AMG Academy (ICAIL) &middot; 2025</p>
-          </div>
-          <span class="cert-verify">Verified</span>
+          <article class="project-card reveal">
+            <div class="project-art uninest" aria-hidden="true">
+              <div class="browser-mock"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><div class="mock-sidebar"></div><div class="mock-main"><div class="mock-title"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div><div class="mock-tile"></div></div></div></div>
+              <span class="art-label">Student housing</span>
+            </div>
+            <div class="project-body">
+              <div class="project-topline"><h3 class="project-name">UniNest</h3><span class="project-type">Housing platform</span></div>
+              <p class="project-desc">A student housing platform for discovering and comparing places to stay, with a responsive frontend and a .NET API.</p>
+              <div class="project-tags"><span>.NET 9</span><span>Web API</span><span>SQL Server</span><span>Responsive UI</span></div>
+              <div class="project-links">
+                <a class="project-link" href="https://foxelhadad812-design.github.io/uninest/" target="_blank" rel="noopener noreferrer">View frontend <span aria-hidden="true">↗</span></a>
+                <a class="project-link" href="https://github.com/foxelhadad812-design/uninest" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block tinted contact" id="contact">
-    <div class="wrap">
-      <p class="section-label">Contact</p>
-      <h2 class="section-heading">Let's build something that works</h2>
-      <p class="contact-text">Have a project in mind or looking for a full-stack .NET engineer? Feel free to reach out.</p>
-      <div class="contact-links">
-        <a href="mailto:foxelhadad812@gmail.com" class="cta">Email me</a>
-        <a href="https://www.linkedin.com/in/mohamed-elhadad-285015428" class="cta cta-outline" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/foxelhadad812-design" class="cta cta-outline" target="_blank" rel="noopener">GitHub</a>
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="skills-grid">
+          <div class="reveal">
+            <p class="section-kicker">Tools of the trade</p>
+            <h2 class="section-title">A stack I’m<br>growing with.</h2>
+            <p class="skills-copy">My strongest focus is the .NET ecosystem. I’m building depth in backend development while continuing to improve my frontend and software quality skills.</p>
+            <div class="learning"><strong>What I value:</strong> understandable code, secure defaults, accessible interfaces, and tests around important behavior.</div>
+          </div>
+          <div class="skill-groups reveal">
+            <div class="skill-group"><h3>Backend</h3><div class="skill-list"><span>C#</span><span>.NET</span><span>ASP.NET Core</span><span>Web API</span><span>Entity Framework</span><span>SignalR</span></div></div>
+            <div class="skill-group"><h3>Data</h3><div class="skill-list"><span>SQL Server</span><span>PostgreSQL</span><span>Relational design</span><span>LINQ</span></div></div>
+            <div class="skill-group"><h3>Frontend</h3><div class="skill-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span><span>Responsive UI</span></div></div>
+            <div class="skill-group"><h3>Workflow</h3><div class="skill-list"><span>Git</span><span>GitHub Actions</span><span>xUnit</span><span>Swagger</span></div></div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<footer>
-  <div class="wrap">
-    &copy; 2026 Mohamed Hassan Elhadad. Built by hand, front to back.
-  </div>
-</footer>
+    <section class="section credentials" id="credentials">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="section-kicker">Learning journey</p><h2 class="section-title">Courses &amp; credentials.</h2></div>
+          <p class="section-intro">A few milestones from my technical learning path.</p>
+        </div>
+        <div class="credential-list reveal">
+          <div class="credential"><span class="credential-mark">AZ</span><div><strong>Azure Fundamentals</strong><span>Microsoft · August 2026</span></div></div>
+          <div class="credential"><span class="credential-mark">CC</span><div><strong>CCNA: Introduction to Networks</strong><span>Cisco Networking Academy · EELU · May 2026</span></div></div>
+          <div class="credential"><span class="credential-mark">AI</span><div><strong>Generative AI — Certificate of Attendance</strong><span>CIB Summer Internship Program · July 2026</span></div></div>
+          <div class="credential"><span class="credential-mark">AI</span><div><strong>International Certification for Artificial Intelligence License</strong><span>AMG Academy · 2025</span></div></div>
+        </div>
+      </div>
+    </section>
 
+    <section class="contact-section" id="contact">
+      <div class="container contact-box reveal">
+        <div>
+          <p class="section-kicker">Say hello</p>
+          <h2 class="section-title">Have a good problem<br>to solve?</h2>
+          <p class="contact-copy">I’m always glad to talk about software, project ideas, and opportunities to keep learning.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:foxelhadad812@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+          <a class="button button-ghost" href="https://www.linkedin.com/in/mohamed-elhadad-285015428" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="button button-ghost" href="https://github.com/foxelhadad812-design" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Mohamed Elhadad <span aria-hidden="true">·</span> Built with care, one project at a time.</footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const progress = document.querySelector(".progress");
+
+    function closeMenu() {
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation");
+      navLinks.classList.remove("open");
+    }
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+      navLinks.classList.toggle("open", !isOpen);
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(item => revealObserver.observe(item));
+
+    const sections = document.querySelectorAll("main section[id]");
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const activeId = entry.target.id;
+          document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
+            if (link.getAttribute("href") === "#" + activeId) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
+          });
+        }
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const value = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      progress.style.width = value + "%";
+    }
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+  </script>
 </body>
 </html>
