@@ -3,356 +3,1639 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#211b28">
-  <title>Mohamed Elhadad — .NET Developer</title>
-  <meta name="description" content="Mohamed Elhadad is a computer science student and .NET developer building practical web applications with C#, ASP.NET Core, and SQL Server.">
+  <meta name="theme-color" content="#0b132b">
+  <title>Mohamed Elhadad — .NET Full Stack Developer | Portfolio</title>
+  <meta name="description" content="Mohamed Elhadad is a .NET Full Stack Developer specializing in C#, ASP.NET Core, EF Core, SQL Server, Clean Architecture, and high-concurrency systems with 500+ automated tests.">
   <meta name="author" content="Mohamed Hassan Elhadad">
+  <link rel="canonical" href="https://foxelhadad812-design.github.io/portfolio/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mohamed Elhadad — .NET Developer">
-  <meta property="og:description" content="Selected projects and experience building web applications with C# and ASP.NET Core.">
+  <meta property="og:title" content="Mohamed Elhadad — .NET Full Stack Developer">
+  <meta property="og:description" content="Enterprise-grade .NET projects, Clean Architecture, distributed locking, and 500+ automated tests across C#, ASP.NET Core, and SQL Server.">
   <meta property="og:url" content="https://foxelhadad812-design.github.io/portfolio/">
+  <meta property="og:image" content="https://foxelhadad812-design.github.io/portfolio/profile.jpg">
+  <meta property="og:image:alt" content="Portrait of Mohamed Elhadad - .NET Full Stack Developer">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohamed Elhadad — .NET Full Stack Developer">
+  <meta name="twitter:description" content="Enterprise-grade .NET projects, Clean Architecture, distributed locking, and 500+ automated tests.">
+  <meta name="twitter:image" content="https://foxelhadad812-design.github.io/portfolio/profile.jpg">
+
+  <!-- JSON-LD Structured Data for ATS & Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Mohamed Elhadad",
+      "alternateName": "Mohamed Hassan Elhadad",
+      "jobTitle": ".NET Full Stack Developer",
+      "description": "Computer Science student and .NET developer building robust web applications with C#, ASP.NET Core, Entity Framework Core, and SQL Server.",
+      "url": "https://foxelhadad812-design.github.io/portfolio/",
+      "image": "https://foxelhadad812-design.github.io/portfolio/profile.jpg",
+      "sameAs": [
+        "https://github.com/foxelhadad812-design",
+        "https://www.linkedin.com/in/mohamed-elhadad-285015428"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Egyptian E-Learning University (EELU)"
+      },
+      "knowsAbout": [
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "Entity Framework Core",
+        "Microsoft SQL Server",
+        "Clean Architecture",
+        "SignalR",
+        "xUnit",
+        "REST APIs",
+        "Docker"
+      ]
+    }
+  }
+  </script>
+
+  <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* ==========================================================================
+       DESIGN TOKENS - PROFESSIONAL .NET FULL-STACK THEME
+       High contrast, enterprise credibility, deep slate navy & electric blue.
+       ========================================================================== */
     :root {
       color-scheme: light;
-      --ink: #251f2a;
-      --muted: #746b75;
-      --paper: #faf6ef;
-      --white: #fffdf9;
-      --line: #e8dfd4;
-      --accent: #bd4e35;
-      --accent-bright: #ffb36e;
-      --sky: #e9b48d;
-      --navy: #211b28;
-      --navy-2: #302536;
-      --radius: 20px;
-      --shadow: 0 18px 50px rgba(15, 33, 51, .09);
+      --navy-950: #070e1e;
+      --navy-900: #0b132b;
+      --navy-850: #121c3b;
+      --navy-800: #1c2541;
+      --navy-700: #2a375e;
+
+      --blue-600: #0284c7;
+      --blue-500: #0ea5e9;
+      --blue-400: #38bdf8;
+      --blue-100: #e0f2fe;
+      --blue-50:  #f0f9ff;
+
+      --dotnet-purple: #512bd4;
+      --dotnet-purple-light: #ece7fb;
+
+      --ink-900: #0f172a;
+      --ink-800: #1e293b;
+      --ink-700: #334155;
+      --ink-600: #475569;
+      --ink-500: #64748b;
+
+      --surface: #ffffff;
+      --surface-subtle: #f8fafc;
+      --surface-card: #ffffff;
+      --surface-border: #e2e8f0;
+      --surface-border-light: #f1f5f9;
+
+      --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+
+      --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font: 16px/1.65 "DM Sans", "Segoe UI", sans-serif;
+      background: var(--surface-subtle);
+      color: var(--ink-700);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      max-width: 100vw;
     }
-    a { color: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-bright); outline-offset: 4px; }
-    .progress { position: fixed; inset: 0 auto auto 0; z-index: 200; width: 0; height: 3px; background: var(--accent-bright); }
-    .site-header {
-      position: fixed; inset: 0 0 auto; z-index: 100;
-      color: #eaf2f8; border-bottom: 1px solid rgba(255,255,255,.09);
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--blue-400);
+      outline-offset: 3px;
     }
-    .site-header.is-scrolled { background: rgba(33,27,40,.94); backdrop-filter: blur(14px); box-shadow: 0 8px 28px rgba(4,12,19,.14); }
-    .skip-link { position: fixed; z-index: 300; top: 10px; left: 10px; padding: 10px 14px; border-radius: 10px; color: var(--navy); background: var(--accent-bright); font-weight: 700; text-decoration: none; transform: translateY(-160%); transition: transform .2s ease; }
+
+    /* Progress indicator */
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 250;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
+      transition: width 0.1s ease-out;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: fixed;
+      z-index: 300;
+      top: 12px;
+      left: 12px;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      background: var(--blue-600);
+      font-weight: 700;
+      font-size: 0.875rem;
+      transform: translateY(-160%);
+      transition: transform 0.2s ease;
+      box-shadow: var(--shadow-lg);
+    }
     .skip-link:focus { transform: translateY(0); }
+
+    /* Site Header */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      background: rgba(11, 19, 43, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .site-header.is-scrolled {
+      background: rgba(7, 14, 30, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
     .nav-wrap {
-      max-width: 1160px; height: 76px; margin: auto; padding: 0 28px;
-      display: flex; justify-content: space-between; align-items: center;
+      position: relative;
+      max-width: 1180px;
+      height: 76px;
+      margin: auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font: 600 15px "Space Grotesk", sans-serif; letter-spacing: -.02em; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.0625rem;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
     .brand-mark {
-      width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px;
-      color: var(--navy); background: var(--accent-bright); font-weight: 700; font-size: 14px;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+      font-weight: 800;
+      font-size: 0.9375rem;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
     }
-    .nav-links { display: flex; align-items: center; gap: 30px; }
-    .nav-links a { color: #bdc9d5; text-decoration: none; font-size: 13px; transition: color .2s ease; }
-    .nav-links a:hover, .nav-links a[aria-current="location"] { color: var(--accent-bright); }
-    .nav-links .nav-contact { color: var(--navy); background: var(--accent-bright); padding: 9px 16px; border-radius: 999px; font-weight: 700; }
-    .nav-links .nav-contact:hover { color: var(--navy); background: #ffd2a8; }
-    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: transparent; color: #fffdf9; cursor: pointer; }
-    .menu-toggle span, .menu-toggle::before, .menu-toggle::after { content: ""; display: block; width: 18px; height: 2px; background: currentColor; margin: 4px auto; transition: transform .2s ease, opacity .2s ease; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: #cbd5e1;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--blue-400);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-nav-cv {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 8px 15px;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-nav-cv:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--blue-400);
+      color: var(--blue-400);
+    }
+    .btn-nav-talk {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      background: var(--blue-600);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-nav-talk:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+    }
+    .mobile-cv-cta {
+      display: none;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 95;
+    }
+    .nav-backdrop.open { display: block; }
+
+    /* ==========================================================================
+       HERO SECTION - ENTERPRISE .NET IDENTITY
+       ========================================================================== */
     .hero {
-      position: relative; overflow: hidden; min-height: 690px; padding: 148px 0 96px;
-      color: #eef5fb; background:
-        radial-gradient(ellipse at 83% 32%, rgba(189,78,53,.23), transparent 32%),
-        radial-gradient(ellipse at 16% 94%, rgba(104,58,78,.22), transparent 38%),
-        linear-gradient(130deg, var(--navy), #28212e 62%, #3a2938);
+      position: relative;
+      overflow: hidden;
+      min-height: 720px;
+      padding: 144px 0 92px;
+      color: #ffffff;
+      background:
+        radial-gradient(ellipse at 80% 25%, rgba(2, 132, 199, 0.22), transparent 45%),
+        radial-gradient(ellipse at 15% 85%, rgba(81, 43, 212, 0.18), transparent 40%),
+        linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 60%, var(--navy-850) 100%);
     }
     .hero::before {
-      content: ""; position: absolute; inset: 0; opacity: .16; pointer-events: none;
-      background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
-      background-size: 48px 48px; mask-image: linear-gradient(90deg, transparent, #000 85%);
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.12;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 40%, transparent 85%);
     }
-    .hero::after {
-      content: ""; position: absolute; width: 330px; height: 330px; right: 8%; top: 16%;
-      border: 1px solid rgba(255,179,110,.18); border-radius: 50%; box-shadow: 0 0 0 34px rgba(255,179,110,.035), 0 0 0 72px rgba(255,179,110,.025);
-      animation: orbit 18s linear infinite; pointer-events: none;
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      padding: 0 24px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 52px;
     }
-    .hero-inner { position: relative; z-index: 1; max-width: 1160px; padding: 0 28px; margin: auto; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 60px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #a9c2d3; font: 600 12px "Space Grotesk", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--accent-bright); }
-    .hero h1 { margin: 19px 0 12px; font: 600 clamp(44px, 6vw, 72px)/1.03 "Space Grotesk", sans-serif; letter-spacing: -.065em; max-width: 700px; }
-    .hero h1 span { color: var(--accent-bright); }
-    .hero-role { margin: 0 0 19px; color: #d7e2ea; font: 500 17px "Space Grotesk", sans-serif; }
-    .hero-copy { max-width: 540px; margin: 0; color: #aebdca; font-size: 16px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .button {
-      min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 0 19px; border-radius: 999px; border: 1px solid transparent; text-decoration: none;
-      font-weight: 700; font-size: 13px; transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+    .eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(2, 132, 199, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--blue-400);
+      font-family: var(--font-display);
+      font-size: clamp(0.6875rem, 2.5vw, 0.8125rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      max-width: 100%;
     }
-    .button:hover { transform: translateY(-3px); }
-    .button-primary { color: var(--navy); background: var(--accent-bright); box-shadow: 0 8px 24px rgba(255,179,110,.2); }
-    .button-primary:hover { background: #ffd2a8; box-shadow: 0 12px 28px rgba(255,179,110,.27); }
-    .button-ghost { color: #e5edf4; border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.035); }
-    .button-ghost:hover { border-color: var(--accent-bright); background: rgba(255,179,110,.09); }
-    .hero-note { margin-top: 25px; color: #8194a5; font-size: 12px; }
-    .hero-note span { color: var(--accent-bright); }
-    .portrait-stage { position: relative; width: min(100%, 365px); justify-self: end; padding: 15px; }
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+    .hero h1 {
+      margin: 0 0 16px;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.2vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      overflow-wrap: break-word;
+    }
+    .hero h1 span.gradient-text {
+      background: linear-gradient(135deg, #ffffff 40%, var(--blue-400) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline;
+    }
+    .hero-role-badge {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      color: #e2e8f0;
+      font-family: var(--font-display);
+      font-size: clamp(0.9375rem, 3.5vw, 1.1875rem);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .hero-copy {
+      max-width: 580px;
+      margin: 0;
+      color: #94a3b8;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 22px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      border: 1px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+      box-shadow: 0 8px 24px rgba(2, 132, 199, 0.55);
+    }
+    .btn-secondary {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--blue-400);
+      color: var(--blue-400);
+    }
+    .btn-ghost-dark {
+      color: #cbd5e1;
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+    .btn-ghost-dark:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Portrait Stage */
+    .portrait-stage {
+      position: relative;
+      width: min(100%, 360px);
+      justify-self: end;
+      padding: 10px;
+    }
     .portrait-frame {
-      aspect-ratio: .82; position: relative; overflow: hidden; border-radius: 180px 180px 28px 28px;
-      background: linear-gradient(145deg, #58404a, #29232c 68%); border: 1px solid rgba(255,255,255,.19);
-      box-shadow: 0 30px 90px rgba(0,0,0,.32);
+      aspect-ratio: 0.82;
+      position: relative;
+      overflow: hidden;
+      border-radius: 200px 200px 32px 32px;
+      background: linear-gradient(145deg, var(--navy-800), var(--navy-900));
+      border: 2px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
     }
-    .portrait-frame::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 57%, rgba(8,18,28,.58)); z-index: 1; }
-    .portrait-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 18%; filter: saturate(.78); }
-    .portrait-orbit { position: absolute; z-index: 2; border: 1px solid rgba(255,179,110,.48); border-radius: 50%; width: 90px; height: 90px; right: -7px; top: 50px; animation: float 5s ease-in-out infinite; }
-    .portrait-orbit::after { content: ""; position: absolute; width: 11px; height: 11px; border-radius: 50%; background: var(--accent-bright); top: 9px; left: 10px; box-shadow: 0 0 22px var(--accent-bright); }
+    .portrait-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 65%, rgba(7, 14, 30, 0.75));
+      z-index: 1;
+    }
+    .portrait-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+    }
     .floating-card {
-      position: absolute; z-index: 3; display: flex; align-items: center; gap: 11px;
-      padding: 12px 15px; border: 1px solid rgba(255,255,255,.13); border-radius: 14px;
-      color: #eaf2f8; background: rgba(18,34,47,.83); backdrop-filter: blur(14px);
-      box-shadow: 0 15px 35px rgba(0,0,0,.22); animation: float 6s ease-in-out infinite;
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      color: #f1f5f9;
+      background: rgba(11, 19, 43, 0.88);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-xl);
     }
-    .floating-card.one { left: -44px; top: 30%; }
-    .floating-card.two { right: -24px; bottom: 10%; animation-delay: -2.5s; }
-    .float-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: rgba(255,179,110,.15); color: var(--accent-bright); font: 700 12px "Space Grotesk", sans-serif; }
-    .float-label { display: block; font-size: 10px; color: #91a3b1; }
-    .float-value { display: block; font: 600 12px "Space Grotesk", sans-serif; }
-    .section { padding: 102px 0; }
-    .container { width: min(1160px, 100%); margin: auto; padding: 0 28px; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 43px; }
-    .section-kicker { margin: 0 0 10px; color: var(--accent); font: 700 11px "Space Grotesk", sans-serif; letter-spacing: .15em; text-transform: uppercase; }
-    .section-title { margin: 0; color: var(--ink); font: 600 clamp(30px,4vw,43px)/1.15 "Space Grotesk", sans-serif; letter-spacing: -.045em; }
-    .section-intro { max-width: 440px; margin: 0; color: var(--muted); font-size: 14px; }
-    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: start; }
-    .about-lead { margin: 0; color: var(--ink); font: 500 25px/1.45 "Space Grotesk", sans-serif; letter-spacing: -.025em; }
-    .about-copy { margin: 0; color: var(--muted); }
-    .about-copy + .about-copy { margin-top: 16px; }
-    .about-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
-    .fact { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: #536273; font-size: 11px; }
-    .fact strong { color: var(--ink); }
-    .projects-section { background: #f3ece4; }
-    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 19px; align-items: stretch; }
-    .project-card { min-width: 0; overflow: hidden; border: 1px solid #e8dfd4; border-radius: var(--radius); background: #fffdf9; box-shadow: 0 7px 25px rgba(17,38,54,.035); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
-    .project-card:hover { transform: translateY(-7px); border-color: rgba(189,78,53,.35); box-shadow: var(--shadow); }
-    .project-art { height: auto; aspect-ratio: 2 / 1; position: relative; overflow: hidden; display: grid; place-items: center; }
-    .project-art.medicare { background: radial-gradient(circle at 75% 10%,#e98f6b 0,transparent 34%), linear-gradient(135deg,#392938,#9f4d4c); }
-    .project-art.playspot { background: radial-gradient(circle at 80% 15%,#ecb65b 0,transparent 28%), linear-gradient(135deg,#193143,#244f68); }
-    .project-art.uninest { background: radial-gradient(circle at 70% 10%,#edb590 0,transparent 34%), linear-gradient(135deg,#754f52,#b78470); }
-    .project-preview { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
-    .project-card:hover .project-preview { transform: scale(1.035); }
-    .art-label { position: absolute; bottom: 13px; right: 16px; color: rgba(255,255,255,.93); background: rgba(7,20,30,.58); padding: 6px 9px; border-radius: 999px; font: 600 9px "Space Grotesk",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-    .project-body { padding: 22px 21px 21px; }
-    .project-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
-    .project-name { margin: 0; color: var(--ink); font: 600 20px "Space Grotesk",sans-serif; letter-spacing: -.035em; }
-    .project-type { padding: 5px 8px; border-radius: 999px; color: #526474; background: #f0f4f6; font-size: 9px; font-weight: 700; white-space: nowrap; }
-    .project-desc { min-height: 68px; margin: 0 0 17px; color: var(--muted); font-size: 12px; line-height: 1.7; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
-    .project-tags span { padding: 5px 8px; border: 1px solid #e4eaed; border-radius: 7px; color: #4d5c69; font-size: 10px; }
-    .project-links { display: flex; flex-wrap: wrap; gap: 18px; }
-    .project-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 12px; font-weight: 700; }
-    .project-link svg { transition: transform .2s ease; }
-    .project-link:hover svg { transform: translateX(4px); }
-    .skills-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 65px; align-items: start; }
-    .skills-copy { max-width: 440px; color: var(--muted); font-size: 14px; }
-    .skill-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .skill-group { padding: 19px; border: 1px solid var(--line); border-radius: 15px; background: #fffdf9; }
-    .skill-group h3 { margin: 0 0 14px; color: var(--ink); font: 600 13px "Space Grotesk",sans-serif; }
-    .skill-list { display: flex; flex-wrap: wrap; gap: 7px; }
-    .skill-list span { padding: 6px 9px; border-radius: 7px; color: #526273; background: #f1f5f6; font-size: 10px; }
-    .learning { margin-top: 22px; padding: 17px 19px; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; color: #526273; background: #f7e9df; font-size: 12px; }
-    .learning strong { color: var(--ink); }
-    .credentials { background: #fffdf9; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .credential-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
-    .credential { display: flex; gap: 13px; align-items: center; min-height: 78px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; }
-    .credential-mark { flex: 0 0 35px; height: 35px; display: grid; place-items: center; border-radius: 11px; background: #f7e9df; color: var(--accent); font: 700 11px "Space Grotesk",sans-serif; }
-    .credential strong { display: block; color: var(--ink); font: 600 12px "Space Grotesk",sans-serif; }
-    .credential span { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
-    .contact-section { padding: 95px 0; color: #edf6fa; background: linear-gradient(120deg,#211b28,#392738); }
-    .contact-box { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-    .contact-box .section-title { color: #f2f7fb; }
-    .contact-box .section-kicker { color: var(--accent-bright); }
-    .contact-copy { max-width: 480px; margin: 13px 0 0; color: #aebdca; font-size: 14px; }
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    footer { padding: 23px 28px; color: #8595a2; background: #17141d; text-align: center; font-size: 11px; }
-    .reveal { opacity: 1; transform: none; }
-    .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.75,.25,1); }
-    .js .reveal.visible { opacity: 1; transform: translateY(0); }
-    .project-card:nth-child(2) { transition-delay: .08s; }
-    .project-card:nth-child(3) { transition-delay: .16s; }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-    @keyframes orbit { to { transform: rotate(360deg); } }
-    @media (max-width: 920px) {
-      .hero-inner { grid-template-columns: 1fr .66fr; gap: 30px; }
-      .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .project-desc { min-height: 0; }
-      .about-grid { gap: 45px; }
-      .nav-links { gap: 18px; }
+    .floating-card.one {
+      left: -32px;
+      top: 32%;
     }
-    @media (max-width: 760px) {
-      html { scroll-padding-top: 74px; }
-      .nav-wrap { height: 68px; padding: 0 20px; }
-      .menu-toggle { display: block; position: relative; z-index: 2; }
-      .nav-links {
-        position: absolute; top: 59px; left: 14px; right: 14px; display: none; align-items: stretch;
-        padding: 12px; border: 1px solid rgba(255,255,255,.13); border-radius: 16px;
-        background: rgba(33,27,40,.97); box-shadow: 0 18px 45px rgba(0,0,0,.28);
+    .floating-card.two {
+      right: -24px;
+      bottom: 8%;
+    }
+    .float-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      background: rgba(2, 132, 199, 0.2);
+      color: var(--blue-400);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.8125rem;
+    }
+    .float-icon.purple {
+      background: rgba(81, 43, 212, 0.25);
+      color: #a78bfa;
+    }
+    .float-label {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .float-value {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: #ffffff;
+    }
+
+    /* Key Metrics Banner */
+    .metrics-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(7, 14, 30, 0.85);
+      padding: 24px 0;
+    }
+    .metrics-grid {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .metric-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      padding-right: 16px;
+    }
+    .metric-item:last-child { border-right: none; }
+    .metric-num {
+      font-family: var(--font-display);
+      font-size: 1.875rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .metric-info strong {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .metric-info span {
+      display: block;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    /* ==========================================================================
+       SECTIONS COMMON LAYOUT
+       ========================================================================== */
+    .section {
+      padding: 96px 0;
+    }
+    .section-light {
+      background: var(--surface-subtle);
+    }
+    .section-white {
+      background: var(--surface);
+      border-top: 1px solid var(--surface-border);
+      border-bottom: 1px solid var(--surface-border);
+    }
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 24px;
+    }
+    .section-head {
+      margin-bottom: 48px;
+    }
+    .section-kicker {
+      margin: 0 0 8px;
+      color: var(--blue-600);
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      margin: 0;
+      color: var(--ink-900);
+      font-family: var(--font-display);
+      font-size: clamp(1.875rem, 3.2vw, 2.625rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+    }
+    .section-intro {
+      max-width: 620px;
+      margin: 12px 0 0;
+      color: var(--ink-600);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       ABOUT SECTION
+       ========================================================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-story {
+      color: var(--ink-700);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .about-story p { margin: 0 0 16px; }
+    .about-story p:last-child { margin-bottom: 0; }
+    .about-callout {
+      padding: 20px 22px;
+      border-left: 4px solid var(--blue-600);
+      background: var(--blue-50);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-top: 24px;
+      font-size: 0.9375rem;
+      color: var(--ink-800);
+    }
+    .about-callout strong { color: var(--blue-600); }
+    .principles-list {
+      display: grid;
+      gap: 16px;
+    }
+    .principle-card {
+      padding: 20px 22px;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .principle-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-md);
+    }
+    .principle-card h3 {
+      margin: 0 0 6px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink-900);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .principle-card h3 svg { color: var(--blue-600); flex-shrink: 0; }
+    .principle-card p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--ink-600);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       PROJECTS SECTION (VERIFIED TECHNICAL ARCHITECTURE)
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(11, 19, 43, 0.12), 0 0 0 1px rgba(14, 165, 233, 0.25);
+      border-color: #93c5fd;
+    }
+    .project-art {
+      position: relative;
+      aspect-ratio: 2 / 1;
+      overflow: hidden;
+      background: #0f172a;
+    }
+    .project-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover .project-art img {
+      transform: scale(1.03);
+    }
+    .project-badge-overlay {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 5px 11px;
+      border-radius: var(--radius-full);
+      background: rgba(11, 19, 43, 0.85);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .project-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .project-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .project-name {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink-900);
+      letter-spacing: -0.02em;
+    }
+    .project-context {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--blue-600);
+      background: var(--blue-50);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+    }
+    .project-lead {
+      margin: 0 0 14px;
+      font-size: 0.875rem;
+      color: var(--ink-700);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .project-engineering-block {
+      background: var(--surface-subtle);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    .engineering-title {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-500);
+      margin-bottom: 4px;
+    }
+    .engineering-fact {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--ink-800);
+      line-height: 1.5;
+    }
+    .engineering-fact strong {
+      color: var(--blue-600);
+    }
+    .project-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+    .project-tech-tags span {
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-700);
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+    }
+    .project-tech-tags span.highlight {
+      background: var(--blue-50);
+      color: var(--blue-600);
+      border-color: #bae6fd;
+    }
+    .project-tech-tags span.badge-test {
+      background: #ecfdf5;
+      color: #047857;
+      border-color: #a7f3d0;
+      font-weight: 700;
+    }
+    .project-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--surface-border);
+    }
+    .btn-project {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      min-height: 38px;
+    }
+    .btn-project-primary {
+      color: #ffffff;
+      background: var(--ink-900);
+    }
+    .btn-project-primary:hover {
+      background: var(--blue-600);
+    }
+    .btn-project-subtle {
+      color: var(--ink-700);
+      background: var(--surface-subtle);
+      border: 1px solid var(--surface-border);
+    }
+    .btn-project-subtle:hover {
+      background: #e2e8f0;
+      color: var(--ink-900);
+    }
+
+    /* ==========================================================================
+       SKILLS SECTION
+       ========================================================================== */
+    .skills-container-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .skill-category-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .skill-category-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-md);
+    }
+    .skill-category-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .skill-category-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      background: var(--blue-50);
+      color: var(--blue-600);
+    }
+    .skill-category-card h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--ink-900);
+    }
+    .skills-badges-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .skill-badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--ink-700);
+      background: var(--surface-subtle);
+      border: 1px solid var(--surface-border);
+    }
+    .skill-badge.core {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+
+    /* ==========================================================================
+       CREDENTIALS SECTION
+       ========================================================================== */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .credential-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .credential-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.875rem;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      border: 1px solid #bae6fd;
+    }
+    .credential-icon.azure {
+      background: #eff6ff;
+      color: #0284c7;
+      border-color: #bfdbfe;
+    }
+    .credential-icon.cisco {
+      background: #ecfeff;
+      color: #0891b2;
+      border-color: #a5f3fc;
+    }
+    .credential-icon.cib {
+      background: #eef2ff;
+      color: #4f46e5;
+      border-color: #c7d2fe;
+    }
+    .credential-icon.amg {
+      background: #faf5ff;
+      color: #9333ea;
+      border-color: #e9d5ff;
+    }
+    .credential-details strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--ink-900);
+    }
+    .credential-details span {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--ink-500);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       CONTACT SECTION
+       ========================================================================== */
+    .contact-section {
+      padding: 104px 0;
+      color: #ffffff;
+      background:
+        radial-gradient(ellipse at 85% 20%, rgba(2, 132, 199, 0.22), transparent 45%),
+        linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .contact-card-box {
+      background: rgba(18, 28, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .contact-card-box .section-title {
+      color: #ffffff;
+    }
+    .contact-card-box .section-intro {
+      color: #94a3b8;
+    }
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contact-action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      min-height: 52px;
+    }
+    .contact-action-btn.primary {
+      color: #ffffff;
+      background: var(--blue-600);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+    .contact-action-btn.primary:hover {
+      background: #0284c7;
+      transform: translateY(-2px);
+    }
+    .contact-action-btn.ghost {
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .contact-action-btn.ghost:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--blue-400);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .btn-copy-email {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .toast-msg {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      background: #22c55e;
+      color: #ffffff;
+      border-radius: var(--radius-full);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .toast-msg.show { opacity: 1; }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer {
+      padding: 32px 24px;
+      color: #94a3b8;
+      background: var(--navy-950);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.8125rem;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: var(--blue-400);
+    }
+    .btn-back-top {
+      color: #94a3b8;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-back-top:hover {
+      color: #ffffff;
+      border-color: var(--blue-400);
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .js .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-container-grid { grid-template-columns: repeat(2, 1fr); }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .metric-item:nth-child(2) { border-right: none; }
+    }
+
+    @media (max-width: 840px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
-      .nav-links.open { display: flex; flex-direction: column; gap: 2px; }
-      .nav-links a { padding: 11px 12px; border-radius: 9px; }
-      .nav-links a:hover { background: rgba(255,255,255,.06); }
-      .nav-links .nav-contact { text-align: center; margin-top: 5px; }
-      .menu-toggle[aria-expanded="true"] span { opacity: 0; }
-      .menu-toggle[aria-expanded="true"]::before { transform: translateY(6px) rotate(45deg); }
-      .menu-toggle[aria-expanded="true"]::after { transform: translateY(-6px) rotate(-45deg); }
-      .hero { min-height: auto; padding: 120px 0 70px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 39px; padding: 0 22px; }
-      .hero h1 { font-size: clamp(43px,12vw,64px); }
-      .hero-copy { max-width: 580px; font-size: 14px; }
-      .portrait-stage { width: min(82%,340px); justify-self: center; margin-top: 18px; }
-      .portrait-frame { aspect-ratio: .92; border-radius: 145px 145px 24px 24px; }
-      .portrait-orbit { right: -21px; width: 70px; height: 70px; }
-      .floating-card.one { left: -8px; top: 0; animation: none; }
-      .floating-card.two { right: -8px; bottom: -22px; animation: none; }
-      .section { padding: 72px 0; }
-      .container { padding: 0 22px; }
-      .section-head { display: block; margin-bottom: 30px; }
-      .section-intro { margin-top: 13px; }
-      .about-grid, .skills-grid { grid-template-columns: 1fr; gap: 26px; }
-      .about-lead { font-size: 22px; }
-      .project-grid { grid-template-columns: 1fr; gap: 14px; }
-      .project-art { height: auto; aspect-ratio: 2 / 1; }
-      .project-body { padding: 20px; }
-      .skill-groups { gap: 12px; }
-      .credential-list { grid-template-columns: 1fr; }
-      .contact-section { padding: 70px 0; }
-      .contact-box { display: block; }
-      .contact-actions { margin-top: 23px; }
+      .portrait-stage {
+        justify-self: center;
+        width: min(84%, 320px);
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .contact-card-box {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+      }
     }
-    @media (max-width: 390px) {
-      .skill-groups { grid-template-columns: 1fr; }
-      .hero-actions .button { width: 100%; }
-      .project-topline { align-items: flex-start; flex-direction: column; }
+
+    @media (max-width: 768px) {
+      html { scroll-padding-top: 72px; }
+      .nav-wrap { height: 68px; padding: 0 16px; }
+      .nav-actions { display: none; }
+      .menu-toggle { display: flex; flex-shrink: 0; }
+      .brand { font-size: 1rem; gap: 8px; }
+      .brand-mark { width: 32px; height: 32px; font-size: 0.875rem; }
+      .hero-inner { padding: 0 16px; }
+      .hero h1 { font-size: clamp(1.65rem, 6vw, 2.25rem); }
+      .nav-links {
+        position: absolute;
+        top: 74px;
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-lg);
+        background: rgba(11, 19, 43, 0.98);
+        box-shadow: var(--shadow-xl);
+        z-index: 100;
+        gap: 4px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        padding: 12px 14px;
+        font-size: 1rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+      .nav-links .mobile-cv-cta {
+        margin-top: 10px;
+        padding: 12px;
+        text-align: center;
+        background: var(--blue-600);
+        color: #ffffff !important;
+        font-weight: 700;
+        justify-content: center;
+      }
+      .projects-grid { grid-template-columns: 1fr; }
+      .credentials-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr; gap: 16px; }
+      .metric-item { border-right: none; }
+      .floating-card.one { left: -10px; top: 10%; }
+      .floating-card.two { right: -10px; bottom: 0; }
+      .section { padding: 64px 0; }
     }
+
+    @media (max-width: 480px) {
+      .hero { padding: 104px 0 54px; }
+      .hero-inner { padding: 0 14px; }
+      .hero h1 { font-size: clamp(1.4rem, 6vw, 1.85rem); line-height: 1.2; }
+      .hero-role-badge span.badge-sep { display: none; }
+      .skills-container-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .project-links-row { flex-direction: column; align-items: stretch; }
+      .btn-project { justify-content: center; }
+    }
+
+    /* Print Stylesheet for PDF/Paper Recruiter Export */
+    @media print {
+      body { background: #ffffff; color: #000000; font-size: 11pt; }
+      .site-header, .progress, .metrics-bar, .hero-actions, .project-links-row, .menu-toggle, footer { display: none !important; }
+      .hero { background: none; color: #000000; padding: 0; min-height: auto; }
+      .hero h1 { color: #000000; font-size: 24pt; }
+      .hero h1 span.gradient-text { -webkit-text-fill-color: initial; color: #000000; }
+      .portrait-stage { display: none; }
+      .section { padding: 15pt 0; }
+      .project-card, .skill-category-card, .credential-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+      }
+      .js .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
       .js .reveal { opacity: 1; transform: none; }
     }
   </style>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+  <!-- Skip navigation for accessibility -->
   <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Scroll Progress -->
   <div class="progress" aria-hidden="true"></div>
+
+  <!-- Header -->
   <header class="site-header">
-    <nav class="nav-wrap" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Mohamed Elhadad, home"><span class="brand-mark">M.</span><span>Mohamed Elhadad</span></a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links"><span></span></button>
-      <div class="nav-links" id="nav-links">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Mohamed Elhadad — Home">
+        <span class="brand-mark">M.</span>
+        <span>Mohamed Elhadad</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#credentials">Credentials</a>
-        <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <a href="#contact">Contact</a>
+        <a class="mobile-cv-cta" href="Mohamed_Elhadad_DotNet_Developer_CV.pdf" download="Mohamed_Elhadad_DotNet_Developer_CV.pdf">
+          Download CV (PDF) 📄
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn-nav-cv" href="Mohamed_Elhadad_DotNet_Developer_CV.pdf" download="Mohamed_Elhadad_DotNet_Developer_CV.pdf" title="Download Mohamed Elhadad's CV in PDF format">
+          <span>Download CV</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+        <a class="btn-nav-talk" href="#contact">
+          <span>Let’s Talk</span>
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main id="main-content">
+    <!-- HERO SECTION -->
     <section class="hero" id="top">
       <div class="hero-inner">
         <div class="hero-content reveal">
-          <span class="eyebrow">Computer Science · EELU Fayoum</span>
-          <h1>Good ideas,<br><span>built for real life.</span></h1>
-          <p class="hero-role">Full-Stack .NET Developer</p>
-          <p class="hero-copy">I build practical web applications with C#, ASP.NET Core, and SQL Server—from the data model and business rules to the interface people use.</p>
+          <div class="eyebrow-pill">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            <span>.NET Full-Stack Developer · DEPI &amp; EELU</span>
+          </div>
+
+          <h1>
+            Architecting Reliable <span class="gradient-text">.NET Web Backends</span> &amp; Systems.
+          </h1>
+
+          <div class="hero-role-badge">
+            <span>Mohamed Elhadad</span>
+            <span class="badge-sep" aria-hidden="true">·</span>
+            <span>C# · ASP.NET Core · SQL Server</span>
+          </div>
+
+          <p class="hero-copy">
+            Computer Science student specializing in the .NET ecosystem. I build clean, testable web applications and REST APIs—implementing Clean Architecture, distributed concurrency locking, relational database design, and over 500 automated tests across projects.
+          </p>
+
           <div class="hero-actions">
-            <a class="button button-primary" href="#projects">Explore my projects <span aria-hidden="true">↓</span></a>
-            <a class="button button-ghost" href="https://github.com/foxelhadad812-design" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-primary" href="#projects">
+              <span>Explore Projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </a>
+            <a class="btn btn-secondary" href="Mohamed_Elhadad_DotNet_Developer_CV.pdf" download="Mohamed_Elhadad_DotNet_Developer_CV.pdf">
+              <span>Download CV (PDF)</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+            <a class="btn btn-ghost-dark" href="https://github.com/foxelhadad812-design" target="_blank" rel="noopener noreferrer">
+              <span>GitHub</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </div>
-          <p class="hero-note"><span>●</span> Currently training in the DEPI .NET Full-Stack track</p>
         </div>
-        <div class="portrait-stage reveal" aria-label="Portrait and technology highlights">
-          <div class="portrait-orbit" aria-hidden="true"></div>
-          <div class="portrait-frame"><img src="profile.jpg" alt="Portrait of Mohamed Elhadad"></div>
-          <div class="floating-card one"><span class="float-icon">C#</span><span><span class="float-label">Building with</span><span class="float-value">ASP.NET Core</span></span></div>
-          <div class="floating-card two"><span class="float-icon">SQL</span><span><span class="float-label">Data &amp; persistence</span><span class="float-value">SQL Server · EF Core</span></span></div>
+
+        <div class="portrait-stage reveal" aria-label="Portrait of Mohamed Elhadad">
+          <div class="portrait-frame">
+            <img src="profile.jpg" alt="Portrait of Mohamed Elhadad - .NET Full Stack Developer" width="768" height="1024" fetchpriority="high" decoding="async">
+          </div>
+          <div class="floating-card one">
+            <span class="float-icon">C#</span>
+            <span>
+              <span class="float-label">Core Specialization</span>
+              <span class="float-value">ASP.NET Core &amp; Web API</span>
+            </span>
+          </div>
+          <div class="floating-card two">
+            <span class="float-icon purple">500+</span>
+            <span>
+              <span class="float-label">Software Quality</span>
+              <span class="float-value">Automated Tests (xUnit)</span>
+            </span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about">
+    <!-- KEY ENGINEERING METRICS BANNER -->
+    <section class="metrics-bar" aria-label="Verified engineering highlights">
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="metric-num">3</div>
+          <div class="metric-info">
+            <strong>Full-Stack Systems</strong>
+            <span>Clean &amp; N-Tier Architectures</span>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">519+</div>
+          <div class="metric-info">
+            <strong>Automated Tests</strong>
+            <span>xUnit unit, integration &amp; race tests</span>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">ACID</div>
+          <div class="metric-info">
+            <strong>Concurrency Safety</strong>
+            <span>sp_getapplock &amp; Filtered Indexes</span>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">100%</div>
+          <div class="metric-info">
+            <strong>Verified Open Source</strong>
+            <span>Auditable code on GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section section-light" id="about">
       <div class="container">
         <div class="section-head reveal">
-          <div><p class="section-kicker">A little about me</p><h2 class="section-title">Thoughtful code.<br>Useful outcomes.</h2></div>
-          <p class="section-intro">I like understanding the full problem before choosing the technology. Then I build in clear steps, keep the code maintainable, and make sure the result works for the people using it.</p>
+          <p class="section-kicker">Engineering Mindset</p>
+          <h2 class="section-title">Clean architectures.<br>Tested business rules.</h2>
+          <p class="section-intro">
+            I approach software engineering from the data model and domain constraints outward, ensuring that database transactions are ACID-safe, APIs are intuitive, and critical edge cases are guarded by automated tests.
+          </p>
         </div>
+
         <div class="about-grid reveal">
-          <p class="about-lead">I’m Mohamed, a Computer Science student focused on building full-stack applications with .NET.</p>
-          <div>
-            <p class="about-copy">My projects cover clinic workflows, sports bookings, and student housing. Each one has taught me how to connect backend rules, data, and interface into a complete product.</p>
-            <p class="about-copy">I’m especially interested in ASP.NET Core, relational database design, API development, and writing tests for important application behavior.</p>
-            <div class="about-facts">
-              <span class="fact"><strong>Study:</strong> Computer Science, EELU</span>
-              <span class="fact"><strong>Track:</strong> DEPI .NET Full Stack</span>
-              <span class="fact"><strong>Focus:</strong> Backend &amp; Web Apps</span>
+          <div class="about-story">
+            <p>
+              I’m Mohamed, a Computer Science student at <strong>Egyptian E-Learning University (EELU) — Fayoum</strong> and a trainee in the <strong>Digital Egypt Pioneers Initiative (DEPI) .NET Full-Stack track</strong>.
+            </p>
+            <p>
+              My primary focus is backend engineering with <strong>C#, ASP.NET Core, and Microsoft SQL Server</strong>. Across my projects in healthcare workflows, sports venue booking, and student housing, I have practiced translating real-world operational challenges into scalable domain models.
+            </p>
+            <p>
+              Rather than building superficial clones, I focus on genuine engineering problems: handling concurrent booking requests without race conditions, enforcing role-based authorization, designing maintainable database schemas, and writing extensive xUnit test suites.
+            </p>
+
+            <div class="about-callout">
+              <strong>Core Values:</strong> Readable code, secure defaults, transactional integrity, and measurable test coverage around critical business logic.
+            </div>
+          </div>
+
+          <div class="principles-list">
+            <div class="principle-card">
+              <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                <span>Architectural Separation</span>
+              </h3>
+              <p>Adhering to Clean Architecture and N-Tier patterns to decouple Domain rules from Infrastructure and Presentation layers, enabling easy maintenance and testability.</p>
+            </div>
+
+            <div class="principle-card">
+              <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Concurrency &amp; Locking</span>
+              </h3>
+              <p>Guarding high-traffic booking operations with SQL Server transactional locking (<code>sp_getapplock</code>) and filtered unique indexes to completely eliminate double bookings.</p>
+            </div>
+
+            <div class="principle-card">
+              <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Automated Quality Assurance</span>
+              </h3>
+              <p>Writing comprehensive test pyramids with xUnit, Moq, and FluentAssertions, including parallel race condition stress simulations and API integration tests.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section projects-section" id="projects">
+    <!-- PROJECTS SECTION -->
+    <section class="section section-white" id="projects">
       <div class="container">
         <div class="section-head reveal">
-          <div><p class="section-kicker">Selected work</p><h2 class="section-title">Projects with a purpose.</h2></div>
-          <p class="section-intro">A few of the systems I’ve built and the problems they’re designed to solve.</p>
+          <p class="section-kicker">Featured Implementations</p>
+          <h2 class="section-title">Verified Full-Stack Projects.</h2>
+          <p class="section-intro">
+            Built from scratch to demonstrate real architectural patterns, database design, and automated test coverage. All code is public and auditable on GitHub.
+          </p>
         </div>
-        <div class="project-grid">
+
+        <div class="projects-grid">
+          <!-- PROJECT 1: CourtBook (PlaySpot) -->
           <article class="project-card reveal">
-            <div class="project-art medicare" aria-hidden="true">
-              <img class="project-preview" src="assets/medicare-preview.svg" alt="" width="1200" height="600" loading="lazy" decoding="async">
-              <span class="art-label">Concept UI · Clinic workflows</span>
+            <div class="project-art">
+              <img src="assets/playspot-preview.svg" alt="PlaySpot court reservation interface" width="1200" height="600" loading="lazy" decoding="async">
+              <span class="project-badge-overlay">Clean Architecture · .NET 10</span>
             </div>
             <div class="project-body">
-              <div class="project-topline"><h3 class="project-name">MediCare</h3><span class="project-type">Graduation project</span></div>
-              <p class="project-desc">A clinic management system for appointments, patient records, prescriptions, and role-based workflows. Includes an optional AI chat assistant with a local fallback.</p>
-              <div class="project-tags"><span>.NET 8</span><span>ASP.NET Core MVC</span><span>EF Core</span><span>SQL Server</span><span>SignalR</span></div>
-              <a class="project-link" href="https://github.com/foxelhadad812-design/MediCare" target="_blank" rel="noopener noreferrer">Explore the project <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <div class="project-header-row">
+                <h3 class="project-name">CourtBook</h3>
+                <span class="project-context">PlaySpot Portal</span>
+              </div>
+              <p class="project-lead">
+                Sports facility discovery and court booking platform featuring real-time availability and Paymob payment integration.
+              </p>
+
+              <div class="project-engineering-block">
+                <span class="engineering-title">Technical Problem Solved</span>
+                <p class="engineering-fact">
+                  Eliminated double bookings under parallel race conditions using SQL Server <strong>sp_getapplock</strong> distributed locking. Validated with <strong>362 automated tests</strong>.
+                </p>
+              </div>
+
+              <div class="project-tech-tags">
+                <span class="highlight">.NET 10</span>
+                <span class="highlight">C# 13</span>
+                <span>Clean Architecture</span>
+                <span>EF Core</span>
+                <span>SQL Server</span>
+                <span>SignalR</span>
+                <span>Paymob API</span>
+                <span class="badge-test">✓ 362 xUnit Tests</span>
+              </div>
+
+              <div class="project-links-row">
+                <a class="btn-project btn-project-primary" href="https://github.com/foxelhadad812-design/CourtBook" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub Repository</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a class="btn-project btn-project-subtle" href="https://github.com/foxelhadad812-design/CourtBook#readme" target="_blank" rel="noopener noreferrer">
+                  <span>Architecture &amp; Docs</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
           </article>
 
+          <!-- PROJECT 2: MediCare -->
           <article class="project-card reveal">
-            <div class="project-art playspot" aria-hidden="true">
-              <img class="project-preview" src="assets/playspot-preview.svg" alt="" width="1200" height="600" loading="lazy" decoding="async">
-              <span class="art-label">Concept UI · Court reservations</span>
+            <div class="project-art">
+              <img src="assets/medicare-preview.svg" alt="MediCare clinic management dashboard" width="1200" height="600" loading="lazy" decoding="async">
+              <span class="project-badge-overlay">DEPI Graduation · .NET 8</span>
             </div>
             <div class="project-body">
-              <div class="project-topline"><h3 class="project-name">PlaySpot</h3><span class="project-type">CourtBook</span></div>
-              <p class="project-desc">A sports venue booking platform with player and venue workflows, court availability, real-time updates, and payment integration.</p>
-              <div class="project-tags"><span>.NET 10</span><span>Clean Architecture</span><span>SQL Server</span><span>SignalR</span><span>xUnit</span></div>
-              <a class="project-link" href="https://github.com/foxelhadad812-design/CourtBook" target="_blank" rel="noopener noreferrer">Explore the project <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <div class="project-header-row">
+                <h3 class="project-name">MediCare</h3>
+                <span class="project-context">Clinic System</span>
+              </div>
+              <p class="project-lead">
+                Comprehensive clinic management system for patient appointments, medical records, digital prescriptions, and role-based workflows.
+              </p>
+
+              <div class="project-engineering-block">
+                <span class="engineering-title">Technical Problem Solved</span>
+                <p class="engineering-fact">
+                  Guaranteed appointment schedule integrity via <strong>filtered unique indexes</strong> and transaction isolation. Backed by <strong>157 automated tests</strong>.
+                </p>
+              </div>
+
+              <div class="project-tech-tags">
+                <span class="highlight">.NET 8</span>
+                <span>ASP.NET Core MVC</span>
+                <span>N-Tier Architecture</span>
+                <span>EF Core</span>
+                <span>SQL Server</span>
+                <span>SignalR</span>
+                <span>Identity</span>
+                <span class="badge-test">✓ 157 xUnit Tests</span>
+              </div>
+
+              <div class="project-links-row">
+                <a class="btn-project btn-project-primary" href="https://github.com/foxelhadad812-design/MediCare" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub Repository</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a class="btn-project btn-project-subtle" href="https://github.com/foxelhadad812-design/MediCare#readme" target="_blank" rel="noopener noreferrer">
+                  <span>Specification</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
           </article>
 
+          <!-- PROJECT 3: UniNest -->
           <article class="project-card reveal">
-            <div class="project-art uninest" aria-hidden="true">
-              <img class="project-preview" src="assets/uninest-preview.svg" alt="" width="1200" height="600" loading="lazy" decoding="async">
-              <span class="art-label">Concept UI · Student housing</span>
+            <div class="project-art">
+              <img src="assets/uninest-preview.svg" alt="UniNest student housing search and map interface" width="1200" height="600" loading="lazy" decoding="async">
+              <span class="project-badge-overlay">PWA &amp; REST API · .NET 9</span>
             </div>
             <div class="project-body">
-              <div class="project-topline"><h3 class="project-name">UniNest</h3><span class="project-type">Housing platform</span></div>
-              <p class="project-desc">A student housing platform for discovering and comparing places to stay, with a responsive frontend and a .NET API.</p>
-              <div class="project-tags"><span>.NET 9</span><span>Web API</span><span>SQL Server</span><span>Responsive UI</span></div>
-              <div class="project-links">
-                <a class="project-link" href="https://foxelhadad812-design.github.io/uninest/" target="_blank" rel="noopener noreferrer">View frontend <span aria-hidden="true">↗</span></a>
-                <a class="project-link" href="https://github.com/foxelhadad812-design/uninest" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+              <div class="project-header-row">
+                <h3 class="project-name">UniNest</h3>
+                <span class="project-context">Student Housing</span>
+              </div>
+              <p class="project-lead">
+                Student housing discovery platform connecting Egyptian university students with verified rentals through interactive maps and live search.
+              </p>
+
+              <div class="project-engineering-block">
+                <span class="engineering-title">Technical Problem Solved</span>
+                <p class="engineering-fact">
+                  Clean Architecture REST API with rate limiting (120 req/min), JWT auth, and dual provider persistence (<strong>SQL Server + SQLite fallback</strong>).
+                </p>
+              </div>
+
+              <div class="project-tech-tags">
+                <span class="highlight">.NET 9</span>
+                <span>Web API</span>
+                <span>Clean Architecture</span>
+                <span>EF Core</span>
+                <span>Leaflet.js</span>
+                <span>PWA</span>
+                <span>Swagger</span>
+              </div>
+
+              <div class="project-links-row">
+                <a class="btn-project btn-project-primary" href="https://foxelhadad812-design.github.io/uninest/" target="_blank" rel="noopener noreferrer">
+                  <span>Live Demo</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a class="btn-project btn-project-subtle" href="https://github.com/foxelhadad812-design/uninest" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <a class="btn-project btn-project-subtle" href="http://uninest-api.runasp.net/swagger" target="_blank" rel="noopener noreferrer">
+                  <span>Swagger API</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
               </div>
             </div>
           </article>
@@ -360,82 +1643,303 @@
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="skills-grid">
-          <div class="reveal">
-            <p class="section-kicker">Tools of the trade</p>
-            <h2 class="section-title">A stack I’m<br>growing with.</h2>
-            <p class="skills-copy">My strongest focus is the .NET ecosystem. I’m building depth in backend development while continuing to improve my frontend and software quality skills.</p>
-            <div class="learning"><strong>What I value:</strong> understandable code, secure defaults, accessible interfaces, and tests around important behavior.</div>
-          </div>
-          <div class="skill-groups reveal">
-            <div class="skill-group"><h3>Backend</h3><div class="skill-list"><span>C#</span><span>.NET</span><span>ASP.NET Core</span><span>Web API</span><span>Entity Framework</span><span>SignalR</span></div></div>
-            <div class="skill-group"><h3>Data</h3><div class="skill-list"><span>SQL Server</span><span>PostgreSQL</span><span>Relational design</span><span>LINQ</span></div></div>
-            <div class="skill-group"><h3>Frontend</h3><div class="skill-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span><span>Responsive UI</span></div></div>
-            <div class="skill-group"><h3>Workflow</h3><div class="skill-list"><span>Git</span><span>GitHub Actions</span><span>xUnit</span><span>Swagger</span></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section credentials" id="credentials">
+    <!-- SKILLS SECTION -->
+    <section class="section section-light" id="skills">
       <div class="container">
         <div class="section-head reveal">
-          <div><p class="section-kicker">Learning journey</p><h2 class="section-title">Courses &amp; credentials.</h2></div>
-          <p class="section-intro">A few milestones from my technical learning path.</p>
+          <p class="section-kicker">Technical Competencies</p>
+          <h2 class="section-title">A focused, enterprise .NET stack.</h2>
+          <p class="section-intro">
+            Skills practiced through real project implementation, repository analysis, and automated testing rather than casual tutorial following.
+          </p>
         </div>
-        <div class="credential-list reveal">
-          <div class="credential"><span class="credential-mark">AZ</span><div><strong>Azure Fundamentals</strong><span>Microsoft · August 2026</span></div></div>
-          <div class="credential"><span class="credential-mark">CC</span><div><strong>CCNA: Introduction to Networks</strong><span>Cisco Networking Academy · EELU · May 2026</span></div></div>
-          <div class="credential"><span class="credential-mark">AI</span><div><strong>Generative AI — Certificate of Attendance</strong><span>CIB Summer Internship Program · July 2026</span></div></div>
-          <div class="credential"><span class="credential-mark">AI</span><div><strong>International Certification for Artificial Intelligence License</strong><span>AMG Academy · 2025</span></div></div>
+
+        <div class="skills-container-grid reveal">
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <h3>Backend</h3>
+            </div>
+            <div class="skills-badges-wrap">
+              <span class="skill-badge core">C#</span>
+              <span class="skill-badge core">.NET 8 / 9 / 10</span>
+              <span class="skill-badge core">ASP.NET Core</span>
+              <span class="skill-badge">Web API</span>
+              <span class="skill-badge">MVC</span>
+              <span class="skill-badge">Entity Framework Core</span>
+              <span class="skill-badge">LINQ</span>
+              <span class="skill-badge">SignalR (WebSockets)</span>
+              <span class="skill-badge">Identity &amp; JWT</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <h3>Database &amp; Design</h3>
+            </div>
+            <div class="skills-badges-wrap">
+              <span class="skill-badge core">SQL Server</span>
+              <span class="skill-badge">PostgreSQL</span>
+              <span class="skill-badge">SQLite</span>
+              <span class="skill-badge core">Clean Architecture</span>
+              <span class="skill-badge">N-Tier Architecture</span>
+              <span class="skill-badge">Repository Pattern</span>
+              <span class="skill-badge">Unit of Work</span>
+              <span class="skill-badge">sp_getapplock Locking</span>
+              <span class="skill-badge">Filtered Indexes</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+              </div>
+              <h3>Quality &amp; DevOps</h3>
+            </div>
+            <div class="skills-badges-wrap">
+              <span class="skill-badge core">xUnit</span>
+              <span class="skill-badge core">Moq</span>
+              <span class="skill-badge">FluentAssertions</span>
+              <span class="skill-badge">Race Condition Testing</span>
+              <span class="skill-badge">Integration Testing</span>
+              <span class="skill-badge core">Git &amp; GitHub</span>
+              <span class="skill-badge">GitHub Actions (CI)</span>
+              <span class="skill-badge">Docker</span>
+              <span class="skill-badge">Swagger / OpenAPI</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <h3>Frontend &amp; Tools</h3>
+            </div>
+            <div class="skills-badges-wrap">
+              <span class="skill-badge">JavaScript (ES6+)</span>
+              <span class="skill-badge">HTML5 &amp; CSS3</span>
+              <span class="skill-badge">Bootstrap 5</span>
+              <span class="skill-badge">Razor Pages / Views</span>
+              <span class="skill-badge">Leaflet.js Maps</span>
+              <span class="skill-badge">PWA</span>
+              <span class="skill-badge">Paymob API</span>
+              <span class="skill-badge">Postman</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
-      <div class="container contact-box reveal">
-        <div>
-          <p class="section-kicker">Say hello</p>
-          <h2 class="section-title">Have a good problem<br>to solve?</h2>
-          <p class="contact-copy">I’m always glad to talk about software, project ideas, and opportunities to keep learning.</p>
+    <!-- CREDENTIALS SECTION -->
+    <section class="section section-white" id="credentials">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">Continuous Learning</p>
+          <h2 class="section-title">Certifications &amp; Training.</h2>
+          <p class="section-intro">
+            Verified milestones complementing academic studies at EELU and practical full-stack engineering.
+          </p>
         </div>
-        <div class="contact-actions">
-          <a class="button button-primary" href="mailto:foxelhadad812@gmail.com">Email me <span aria-hidden="true">↗</span></a>
-          <a class="button button-ghost" href="https://www.linkedin.com/in/mohamed-elhadad-285015428" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-          <a class="button button-ghost" href="https://github.com/foxelhadad812-design" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+
+        <div class="credentials-grid reveal">
+          <div class="credential-card">
+            <div class="credential-icon azure">AZ</div>
+            <div class="credential-details">
+              <strong>Microsoft Azure Fundamentals (AZ-900)</strong>
+              <span>Microsoft · August 2026</span>
+            </div>
+          </div>
+
+          <div class="credential-card">
+            <div class="credential-icon cisco">CC</div>
+            <div class="credential-details">
+              <strong>CCNA: Introduction to Networks</strong>
+              <span>Cisco Networking Academy · EELU · May 2026</span>
+            </div>
+          </div>
+
+          <div class="credential-card">
+            <div class="credential-icon cib">AI</div>
+            <div class="credential-details">
+              <strong>Generative AI — Certificate of Attendance</strong>
+              <span>CIB Summer Internship Program · July 2026</span>
+            </div>
+          </div>
+
+          <div class="credential-card">
+            <div class="credential-icon amg">AI</div>
+            <div class="credential-details">
+              <strong>International Certification for Artificial Intelligence License</strong>
+              <span>AMG Academy · 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card-box reveal">
+          <div>
+            <p class="section-kicker" style="color: var(--blue-400);">Get In Touch</p>
+            <h2 class="section-title">Ready to contribute to your engineering team.</h2>
+            <p class="section-intro">
+              I’m looking for opportunities as a <strong>.NET Full Stack Developer</strong> (Junior / Associate / Graduate roles), open to remote, hybrid, or on-site positions in Egypt and globally.
+            </p>
+            <p style="margin-top: 14px; font-size: 0.875rem; color: #cbd5e1;">
+              📍 Fayoum / Cairo, Egypt · Fast response to email &amp; LinkedIn messages.
+            </p>
+          </div>
+
+          <div class="contact-methods">
+            <a class="contact-action-btn primary" href="mailto:foxelhadad812@gmail.com?subject=Job%20Opportunity%20-%20.NET%20Developer">
+              <span>Send Email</span>
+              <span aria-hidden="true">foxelhadad812@gmail.com ↗</span>
+            </a>
+
+            <button class="contact-action-btn ghost btn-copy-email" type="button" id="btn-copy-email">
+              <span>Copy Email Address</span>
+              <span class="toast-msg" id="copy-toast">Copied!</span>
+            </button>
+
+            <a class="contact-action-btn ghost" href="Mohamed_Elhadad_DotNet_Developer_CV.pdf" download="Mohamed_Elhadad_DotNet_Developer_CV.pdf">
+              <span>Download CV (PDF)</span>
+              <span aria-hidden="true">📄 90 KB</span>
+            </a>
+
+            <a class="contact-action-btn ghost" href="https://www.linkedin.com/in/mohamed-elhadad-285015428" target="_blank" rel="noopener noreferrer">
+              <span>Connect on LinkedIn</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <a class="contact-action-btn ghost" href="https://github.com/foxelhadad812-design" target="_blank" rel="noopener noreferrer">
+              <span>Follow on GitHub</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>© 2026 Mohamed Elhadad <span aria-hidden="true">·</span> Built with care, one project at a time.</footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        © 2026 Mohamed Elhadad · .NET Full Stack Developer.
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="https://github.com/foxelhadad812-design" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/mohamed-elhadad-285015428" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button class="btn-back-top" type="button" id="btn-back-top" aria-label="Back to top">
+          Back to top ↑
+        </button>
+      </div>
+    </div>
+  </footer>
 
+  <!-- JAVASCRIPT: ACCESSIBLE & DEPENDENCY-FREE -->
   <script>
+    // Elements
     const menuButton = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
+    const navBackdrop = document.getElementById("nav-backdrop");
     const progress = document.querySelector(".progress");
     const siteHeader = document.querySelector(".site-header");
+    const copyEmailBtn = document.getElementById("btn-copy-email");
+    const copyToast = document.getElementById("copy-toast");
+    const backToTopBtn = document.getElementById("btn-back-top");
+
+    // Mobile Navigation Controls
+    function openMenu() {
+      menuButton.setAttribute("aria-expanded", "true");
+      menuButton.setAttribute("aria-label", "Close navigation menu");
+      navLinks.classList.add("open");
+      navBackdrop.classList.add("open");
+    }
 
     function closeMenu() {
       menuButton.setAttribute("aria-expanded", "false");
-      menuButton.setAttribute("aria-label", "Open navigation");
+      menuButton.setAttribute("aria-label", "Open navigation menu");
       navLinks.classList.remove("open");
+      navBackdrop.classList.remove("open");
     }
 
     menuButton.addEventListener("click", () => {
       const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-      menuButton.setAttribute("aria-expanded", String(!isOpen));
-      menuButton.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
-      navLinks.classList.toggle("open", !isOpen);
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
+    navBackdrop.addEventListener("click", closeMenu);
     navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") closeMenu();
     });
 
+    // Copy Email to Clipboard
+    if (copyEmailBtn && copyToast) {
+      copyEmailBtn.addEventListener("click", () => {
+        const email = "foxelhadad812@gmail.com";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(() => {
+            copyToast.classList.add("show");
+            setTimeout(() => copyToast.classList.remove("show"), 2200);
+          }).catch(() => fallbackCopy(email));
+        } else {
+          fallbackCopy(email);
+        }
+      });
+    }
+
+    function fallbackCopy(text) {
+      const tempInput = document.createElement("input");
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand("copy");
+        copyToast.classList.add("show");
+        setTimeout(() => copyToast.classList.remove("show"), 2200);
+      } catch (err) {
+        window.location.href = "mailto:" + text;
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Back to top button
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    // Scroll Progress & Header Shadow
+    function updateScrollState() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const value = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      progress.style.width = value + "%";
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 20);
+    }
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    updateScrollState();
+
+    // IntersectionObserver for Reveal Animations
     if ("IntersectionObserver" in window) {
       const revealObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -444,34 +1948,29 @@
             revealObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.1 });
       document.querySelectorAll(".reveal").forEach(item => revealObserver.observe(item));
+
+      // ScrollSpy for Active Section Navigation
+      const sections = document.querySelectorAll("main section[id]");
+      const spyObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const activeId = entry.target.id;
+            document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
+              if (link.getAttribute("href") === "#" + activeId) {
+                link.setAttribute("aria-current", "page");
+              } else {
+                link.removeAttribute("aria-current");
+              }
+            });
+          }
+        });
+      }, { rootMargin: "-25% 0px -65% 0px" });
+      sections.forEach(section => spyObserver.observe(section));
     } else {
       document.querySelectorAll(".reveal").forEach(item => item.classList.add("visible"));
     }
-
-    const sections = document.querySelectorAll("main section[id]");
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const activeId = entry.target.id;
-          document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
-            if (link.getAttribute("href") === "#" + activeId) link.setAttribute("aria-current", "location");
-            else link.removeAttribute("aria-current");
-          });
-        }
-      });
-    }, { rootMargin: "-35% 0px -55% 0px" });
-    sections.forEach(section => sectionObserver.observe(section));
-
-    function updateProgress() {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      const value = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-      progress.style.width = value + "%";
-      siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
-    }
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
   </script>
 </body>
 </html>
